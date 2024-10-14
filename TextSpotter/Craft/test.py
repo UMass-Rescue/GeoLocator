@@ -42,10 +42,43 @@ def copyStateDict(state_dict):
 def str2bool(v):
     return v.lower() in ("yes", "y", "true", "t", "1")
 
+def save_crops(polys,image,result_folder):
+  for i,poly in enumerate(polys):
+    #print(poly)
+    poly = np.array(poly).reshape(-1,2)
+    rect = cv2.boundingRect(poly)
+    x,y,w,h = rect
+    croped = image[y:y+h, x:x+w,:].copy()
+    
+
+    '''## (2) make mask
+    pts = poly - poly.min(axis=0)
+    print(pts.shape)
+    print(pts)
+    mask = np.zeros(croped.shape[:2], np.uint8)
+    cv2.drawContours(mask, [pts], -1, (255, 255, 255), -1, cv2.LINE_AA)
+
+    ## (3) do bit-op
+    dst = cv2.bitwise_and(croped, croped, mask=mask)
+
+    ## (4) add the white background
+    bg = np.ones_like(croped, np.uint8)*255
+    cv2.bitwise_not(bg,bg, mask=mask)
+    dst2 = bg+ dst'''
+
+
+    cv2.imwrite(result_folder+"/res_" + filename + "_croped_"+str(i)+".png", croped[:, :, ::-1] )
+    #cv2.imwrite(result_folder+"mask.png", mask)
+    #cv2.imwrite(result_folder+"dst.png", dst)
+    #cv2.imwrite(result_folder+"dst2.png", dst2)
+
+
+
+
 parser = argparse.ArgumentParser(description='CRAFT Text Detection')
 parser.add_argument('--trained_model', default='weights/craft_mlt_25k.pth', type=str, help='pretrained model')
-parser.add_argument('--text_threshold', default=0.7, type=float, help='text confidence threshold')
-parser.add_argument('--low_text', default=0.4, type=float, help='text low-bound score')
+parser.add_argument('--text_threshold', default=0.3, type=float, help='text confidence threshold')
+parser.add_argument('--low_text', default=0.3, type=float, help='text low-bound score')
 parser.add_argument('--link_threshold', default=0.4, type=float, help='link confidence threshold')
 parser.add_argument('--cuda', default=True, type=str2bool, help='Use cuda for inference')
 parser.add_argument('--canvas_size', default=1280, type=int, help='image size for inference')
@@ -163,9 +196,9 @@ if __name__ == '__main__':
 
         # save score text
         filename, file_ext = os.path.splitext(os.path.basename(image_path))
-        mask_file = result_folder + "/res_" + filename + '_mask.jpg'
-        cv2.imwrite(mask_file, score_text)
+        #mask_file = result_folder + "/res_" + filename + '_mask.jpg'
+        #cv2.imwrite(mask_file, score_text)
 
         file_utils.saveResult(image_path, image[:,:,::-1], polys, dirname=result_folder)
-
+        save_crops(polys,image,result_folder)
     print("elapsed time : {}s".format(time.time() - t))
