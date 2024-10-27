@@ -149,7 +149,7 @@ weight_softmax[weight_softmax<0] = 0
 # load the test image
 #img_url = '/content/x.jpg'
 #os.system('wget %s -q -O test.jpg' % img_url)
-img = Image.open('/testImages/landmark.jpg')
+img = Image.open('testImages/landmark.jpg')
 input_img = V(tf(img).unsqueeze(0))
 
 # forward pass
