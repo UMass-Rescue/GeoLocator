@@ -81,3 +81,12 @@ If you find our work useful in your research, please consider citing:
     pages={9365--9374},
     year={2019}
     }
+
+     @article{zhou2017places,
+   title={Places: A 10 million Image Database for Scene Recognition},
+   author={Zhou, Bolei and Lapedriza, Agata and Khosla, Aditya and Oliva, Aude and Torralba, Antonio},
+   journal={IEEE Transactions on Pattern Analysis and Machine Intelligence},
+   year={2017},
+   publisher={IEEE}
+    }
+
