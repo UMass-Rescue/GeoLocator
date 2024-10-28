@@ -94,12 +94,12 @@ def returnTF():
 def load_model():
     # this model has a last conv feature map as 14x14
 
-    model_file = 'modelWeights/wideresnet18_places365.pth.tar'
+    model_file = 'IndoorOutdoorClassifier/wideresnet18_places365.pth.tar'
     if not os.access(model_file, os.W_OK):
         os.system('wget http://places2.csail.mit.edu/models_places365/' + model_file)
         os.system('wget https://raw.githubusercontent.com/csailvision/places365/master/wideresnet.py')
 
-    import wideresnet
+    import IndoorOutdoorClassifier.wideresnet as wideresnet
     model = wideresnet.resnet18(num_classes=365)
     checkpoint = torch.load(model_file, map_location=lambda storage, loc: storage)
     state_dict = {str.replace(k,'module.',''): v for k,v in checkpoint['state_dict'].items()}
@@ -149,26 +149,43 @@ weight_softmax[weight_softmax<0] = 0
 # load the test image
 #img_url = '/content/x.jpg'
 #os.system('wget %s -q -O test.jpg' % img_url)
-img = Image.open('/testImages/landmark.jpg')
-input_img = V(tf(img).unsqueeze(0))
+image_extensions = [".jpg", ".jpeg", ".png", ".bmp", ".gif"]  # Add more if needed
+image_files = []
+directory = "testImages"
+for filename in os.listdir(directory):
+        if os.path.isfile(os.path.join(directory, filename)):
+            if any(filename.endswith(ext) for ext in image_extensions):
+                image_files.append(os.path.join(directory, filename))
 
-# forward pass
-logit = model.forward(input_img)
-h_x = F.softmax(logit, 1).data.squeeze()
-probs, idx = h_x.sort(0, True)
-probs = probs.numpy()
-idx = idx.numpy()
+for img_file in image_files:
+    img = Image.open(img_file)
+    input_img = V(tf(img).unsqueeze(0))
 
-#print('RESULT ON ' + img_url)
+    # forward pass
+    logit = model.forward(input_img)
+    h_x = F.softmax(logit, 1).data.squeeze()
+    probs, idx = h_x.sort(0, True)
+    probs = probs.numpy()
+    idx = idx.numpy()
 
-# output the IO prediction
-io_image = np.mean(labels_IO[idx[:10]]) # vote for the indoor or outdoor
-if io_image < 0.5:
-    print('--TYPE OF ENVIRONMENT: indoor')
-else:
-    print('--TYPE OF ENVIRONMENT: outdoor')
+    #print('RESULT ON ' + img_url)
 
-# output the prediction of scene category
-print('--SCENE CATEGORIES:')
-for i in range(0, 5):
-    print('{:.3f} -> {}'.format(probs[i], classes[idx[i]]))
+    # output the IO prediction
+    io_image = np.mean(labels_IO[idx[:10]]) # vote for the indoor or outdoor
+    if io_image < 0.5:
+        if img_file.contains('INT.'):
+            print('Correct Prediction: --TYPE OF ENVIRONMENT: indoor')
+        else:
+            print("Incorrect Prediction: Outdoor Image predicted as indoor")
+    else:
+        if img_file.contains('EXT.'):
+            print('Correct Prediction: --TYPE OF ENVIRONMENT: outdoor')
+        else:
+            print("Incorrect Prediction: Indoor Image predicted as outdoor")
+        
+
+    
+    # output the prediction of scene category
+    print('--SCENE CATEGORIES:')
+    for i in range(0, 5):
+        print('{:.3f} -> {}'.format(probs[i], classes[idx[i]]))
