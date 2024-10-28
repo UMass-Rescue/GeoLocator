@@ -173,12 +173,12 @@ for img_file in image_files:
     # output the IO prediction
     io_image = np.mean(labels_IO[idx[:10]]) # vote for the indoor or outdoor
     if io_image < 0.5:
-        if img_file.contains('INT.'):
+        if 'INT.' in img_file:
             print('Correct Prediction: --TYPE OF ENVIRONMENT: indoor')
         else:
             print("Incorrect Prediction: Outdoor Image predicted as indoor")
     else:
-        if img_file.contains('EXT.'):
+        if 'EXT.' in img_file:
             print('Correct Prediction: --TYPE OF ENVIRONMENT: outdoor')
         else:
             print("Incorrect Prediction: Indoor Image predicted as outdoor")
