@@ -50,8 +50,6 @@ The script will:
 - PhraseMatcher: Matches known locations using spaCy's PhraseMatcher.
 - Regex Fallback: Uses regex to match additional locations based on predefined patterns if no locations are detected.
 
-# Example Output
-
 # Notes
 - Ensure you have a GPU available to leverage `gpu=True` in EasyOCR for faster processing.
 - Update the `known_locations` list in the PhraseMatcher function to add or modify location patterns as needed.
