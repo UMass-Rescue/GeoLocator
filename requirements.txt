@@ -1,3 +1,0 @@
-geoclip
-openmim
-tkinter
