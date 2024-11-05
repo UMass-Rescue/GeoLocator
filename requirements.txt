@@ -9,8 +9,9 @@ easyocr
 torch #==1.7.1+cu101  # or compatible with your CUDA setup (update if needed)
 spacy
 langdetect
+matplotlib
 folium
-openmim
+#openmim
 #mmengine
 #mmcv==2.0.0rc4
 #mmdet>=3.0.0rc0

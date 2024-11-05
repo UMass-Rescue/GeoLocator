@@ -203,7 +203,7 @@ def run_iodetector(img_file):
     #                 image_files.append(os.path.join(directory, filename))
 
     #for img_file in image_files:
-    print(img_file)
+    #print(img_file)
     img = Image.open(img_file)
     input_img = V(tf(img).unsqueeze(0))
 

@@ -4,8 +4,9 @@ from IndoorOutdoorClassifier.iodetector import run_iodetector
 from geoclipModule import geoclip 
 import json
 import warnings
-from TextSpotter.MMOCR.tools import dba
+from utils import textExtraction
 warnings.filterwarnings("ignore")
+from TextSpotter.Craft import textspot
 
 def append_to_json(file_path, data):
     """Appends data to a JSON file, creating it if it doesn't exist."""
@@ -42,11 +43,34 @@ def start(directory,outputJson):
                     image_files.append(os.path.join(directory, filename))
 
 
-    print(f"There are {len(image_files)} images in the folder selected")
+    print(f"There are {len(image_files)} images in the folder selected to be processed")
     for img in image_files:
-         op = run_iodetector(img)
-         geoclipOp = geoclip.detect_location_from_image(img,op)
+         print("Processing: ",img)
+         #op = run_iodetector(img)
+         #geoclipOp = geoclip.detect_location_from_image(img,op)
          #dba.infer(inputs=img)
+         # Example usage
+# Run the function on a single image, specify parameters as needed
+            # #textspot.run_craft(
+            #     image_path=img,
+            #     result_folder="temp/",
+            #     trained_model="TextSpotter/Craft/weights/craft_mlt_25k.pth",
+            #     text_threshold=0.7,
+            #     low_text=0.3,
+            #     link_threshold=0.4,
+            #     cuda=False,
+            #     canvas_size=1280,
+            #     mag_ratio=1.5,
+            #     poly=False,
+            #     refine=False
+            # )
+         print(os.listdir('temp'))
+         for filename in os.listdir('temp'):
+            if os.path.isfile(os.path.join('temp', filename)):
+                if any(filename.endswith(ext) for ext in image_extensions):
+                    print(filename)
+                    textExtraction.get_location_from_text(os.path.join('temp', filename))
+
          append_to_json(outputJson, geoclipOp)
 
 
