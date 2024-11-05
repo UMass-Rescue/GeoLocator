@@ -4,6 +4,7 @@ from IndoorOutdoorClassifier.iodetector import run_iodetector
 from geoclipModule import geoclip 
 import json
 import warnings
+from TextSpotter.MMOCR.tools import dba
 warnings.filterwarnings("ignore")
 
 def append_to_json(file_path, data):
@@ -44,8 +45,9 @@ def start(directory,outputJson):
     print(f"There are {len(image_files)} images in the folder selected")
     for img in image_files:
          op = run_iodetector(img)
-         geoclipOp = geoclip.detect_location_from_image(img)
-         append_to_json(outputJson, op)
+         geoclipOp = geoclip.detect_location_from_image(img,op)
+         #dba.infer(inputs=img)
+         append_to_json(outputJson, geoclipOp)
 
 
 

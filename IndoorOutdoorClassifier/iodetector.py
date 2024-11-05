@@ -213,7 +213,7 @@ def run_iodetector(img_file):
     probs, idx = h_x.sort(0, True)
     probs = probs.numpy()
     idx = idx.numpy()
-    print(labels_IO[idx[:10]],probs[:10])
+    #print(labels_IO[idx[:10]],probs[:10])
     io_image = np.average(labels_IO[idx[:10]],weights= probs[:10]) 
     output["Image"] = img_file
     if io_image<0.5:
@@ -226,26 +226,8 @@ def run_iodetector(img_file):
         scene[classes[idx[i]]] = str(round(probs[i],3))
       
     output["Scene Category"].append(scene)
-    print(output)  
+    #print(output)  
     return output
 
 
-    #print(io_image)
-        #print('RESULT ON ' + img_url)
-
-        # output the IO prediction
-    '''io_image = np.mean(labels_IO[idx[:10]]) # vote for the indoor or outdoor
-    if io_image < 0.5:
-            #if 'INT.' in img_file:
-            print(' Prediction: --TYPE OF ENVIRONMENT: indoor')
-          
-    else:
-            print('Correct Prediction: --TYPE OF ENVIRONMENT: outdoor')
-            
-            
-
-        
-        # output the prediction of scene category
-    print('--SCENE CATEGORIES:')
-    for i in range(0, 5):
-        print('{:.3f} -> {}'.format(probs[i], classes[idx[i]]))'''
+   

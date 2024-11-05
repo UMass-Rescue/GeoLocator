@@ -96,7 +96,7 @@ For Image:
 
 Output Predicted by Craft and DBANEt
 For Image:
-![Architecture](outputImages/x.jpg)|
+![Architecture](Images/x.jpg)|
 |:--:|
 | <b> Fig.1 -  Output Image </b>|
 
@@ -139,11 +139,11 @@ If you find our work useful in your research, please consider citing:
     year={2019}
     }
 
-     @article{zhou2017places,
-   title={Places: A 10 million Image Database for Scene Recognition},
-   author={Zhou, Bolei and Lapedriza, Agata and Khosla, Aditya and Oliva, Aude and Torralba, Antonio},
-   journal={IEEE Transactions on Pattern Analysis and Machine Intelligence},
-   year={2017},
-   publisher={IEEE}
+    @article{zhou2017places,
+    title={Places: A 10 million Image Database for Scene Recognition},
+    author={Zhou, Bolei and Lapedriza, Agata and Khosla, Aditya and Oliva, Aude and Torralba, Antonio},
+    journal={IEEE Transactions on Pattern Analysis and Machine Intelligence},
+    year={2017},
+    publisher={IEEE}
     }
 
