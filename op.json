@@ -1,0 +1,146 @@
+[
+    {
+        "Image": "testImages\\antarctica_0219_EXT.png",
+        "Environment Type": "Outdoor",
+        "Scene Category": [
+            {
+                "Description": "Probability"
+            },
+            {
+                "tundra": "0.2",
+                "snowfield": "0.197",
+                "mountain_snowy": "0.179",
+                "glacier": "0.119",
+                "crevasse": "0.077"
+            }
+        ]
+    },
+    {
+        "Image": "testImages\\antarctica_0219_EXT.png",
+        "Environment Type": "Outdoor",
+        "Scene Category": [
+            {
+                "Description": "Probability"
+            },
+            {
+                "tundra": "0.2",
+                "snowfield": "0.197",
+                "mountain_snowy": "0.179",
+                "glacier": "0.119",
+                "crevasse": "0.077"
+            }
+        ]
+    },
+    {
+        "Image": "testImages\\iceland_0226_EXT.png",
+        "Environment Type": "Outdoor",
+        "Scene Category": [
+            {
+                "Description": "Probability"
+            },
+            {
+                "chalet": "0.142",
+                "beach_house": "0.097",
+                "ski_resort": "0.088",
+                "boathouse": "0.058",
+                "residential_neighborhood": "0.054"
+            }
+        ]
+    },
+    {
+        "Image": "testImages\\antarctica_0219_EXT.png",
+        "Environment Type": "Outdoor",
+        "Scene Category": [
+            {
+                "Description": "Probability"
+            },
+            {
+                "tundra": "0.2",
+                "snowfield": "0.197",
+                "mountain_snowy": "0.179",
+                "glacier": "0.119",
+                "crevasse": "0.077"
+            }
+        ]
+    },
+    {
+        "Image": "testImages\\iceland_0226_EXT.png",
+        "Environment Type": "Outdoor",
+        "Scene Category": [
+            {
+                "Description": "Probability"
+            },
+            {
+                "chalet": "0.142",
+                "beach_house": "0.097",
+                "ski_resort": "0.088",
+                "boathouse": "0.058",
+                "residential_neighborhood": "0.054"
+            }
+        ]
+    },
+    {
+        "Image": "testImages\\iceland_0303_INT.png",
+        "Environment Type": "Indoor",
+        "Scene Category": [
+            {
+                "Description": "Probability"
+            },
+            {
+                "airplane_cabin": "0.184",
+                "train_interior": "0.175",
+                "bus_interior": "0.134",
+                "basement": "0.1",
+                "berth": "0.041"
+            }
+        ]
+    },
+    {
+        "Image": "testImages\\antarctica_0219_EXT.png",
+        "Environment Type": "Outdoor",
+        "Scene Category": [
+            {
+                "Description": "Probability"
+            },
+            {
+                "tundra": "0.2",
+                "snowfield": "0.197",
+                "mountain_snowy": "0.179",
+                "glacier": "0.119",
+                "crevasse": "0.077"
+            }
+        ]
+    },
+    {
+        "Image": "testImages\\antarctica_0219_EXT.png",
+        "Environment Type": "Outdoor",
+        "Scene Category": [
+            {
+                "Description": "Probability"
+            },
+            {
+                "tundra": "0.2",
+                "snowfield": "0.197",
+                "mountain_snowy": "0.179",
+                "glacier": "0.119",
+                "crevasse": "0.077"
+            }
+        ]
+    },
+    {
+        "Image": "testImages\\iceland_0226_EXT.png",
+        "Environment Type": "Outdoor",
+        "Scene Category": [
+            {
+                "Description": "Probability"
+            },
+            {
+                "chalet": "0.142",
+                "beach_house": "0.097",
+                "ski_resort": "0.088",
+                "boathouse": "0.058",
+                "residential_neighborhood": "0.054"
+            }
+        ]
+    }
+]

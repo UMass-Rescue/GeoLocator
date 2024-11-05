@@ -9,17 +9,17 @@ import spacy
 from langdetect import detect
 from spacy.matcher import PhraseMatcher
 
-# List of image paths
-image_paths = [
-    'dataset/train_val_images/train_images/ffe3f4c718e9ad0d.jpg',
-    'dataset/train_val_images/train_images/fffb31ec87802a5a.jpg',
-    'dataset/train_val_images/train_images/ffda1919cf90a8eb.jpg',
-    'dataset/train_val_images/train_images/ffdf2c012fcee84d.jpg',
-    'dataset/train_val_images/train_images/ffbaa76bd8d172cf.jpg',
-]
+# # List of image paths
+# image_paths = [
+#     'dataset/train_val_images/train_images/ffe3f4c718e9ad0d.jpg',
+#     'dataset/train_val_images/train_images/fffb31ec87802a5a.jpg',
+#     'dataset/train_val_images/train_images/ffda1919cf90a8eb.jpg',
+#     'dataset/train_val_images/train_images/ffdf2c012fcee84d.jpg',
+#     'dataset/train_val_images/train_images/ffbaa76bd8d172cf.jpg',
+# ]
 
 # Initialize EasyOCR reader with multilingual support (modify languages as needed)
-reader = easyocr.Reader(['en'], gpu=True)
+
 
 # Define functions for text cleaning, language detection, and NER post-processing
 def clean_text(text):
@@ -48,12 +48,11 @@ def initialize_phrase_matcher(nlp):
     matcher.add("LocationMatcher", patterns)
     return matcher
 
-# Process each image
-for image_path in image_paths:
-    print(f"\nProcessing image: {image_path}")
-
+def get_location_from_text(image):
+    print(f"\nProcessing image")
+    reader = easyocr.Reader(['en'], gpu=True)
     # Step 1: Extract Text from the Image with EasyOCR
-    result = reader.readtext(image_path)
+    result = reader.readtext(image)
     ocr_data = []
     for (bbox, text, conf) in result:
         print(f"Detected Text: '{text}' with confidence {conf:.2f}")
@@ -129,3 +128,4 @@ for image_path in image_paths:
         all_locations = regex_fallback(cleaned_text)
 
     print("\nFinal Recognized Locations:", list(all_locations))
+

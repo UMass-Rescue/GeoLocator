@@ -9,4 +9,6 @@ easyocr==1.4.1
 torch==1.7.1+cu101  # or compatible with your CUDA setup (update if needed)
 spacy==3.1.3
 langdetect==1.0.9
+%cd TextSpotter/mmocr
+!mim install -e .
 # Additional requirements for spaCy models
