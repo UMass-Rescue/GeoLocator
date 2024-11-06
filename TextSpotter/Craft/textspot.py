@@ -34,7 +34,17 @@ def save_crops(polys, image, result_folder, filename):
         rect = cv2.boundingRect(poly)
         x, y, w, h = rect
         croped = image[y:y+h, x:x+w, :].copy()
-        cv2.imwrite(f"{result_folder}/res_{filename}_croped_{i}.png", croped[:, :, ::-1])
+        if croped.size == 0:
+            print(f"Skipping crop {i} - empty crop.")
+            continue  # Skip this crop if empty
+        
+        # Attempt to save the crop
+        save_path = f"{result_folder}/res_{filename}_croped_{i}.png"
+        success = cv2.imwrite(save_path, croped[:, :, ::-1])
+        
+        if not success:
+            print(f"Failed to save crop {i} at {save_path}")
+        
 
 def test_net(net, image, text_threshold, link_threshold, low_text, cuda, poly, mag_ratio, canvas_size, refine_net=None):
     # Preprocessing
@@ -110,6 +120,9 @@ def run_craft(image_path, result_folder='./result', trained_model='weights/craft
     bboxes, polys = test_net(net, image, text_threshold, link_threshold, low_text, cuda, poly, mag_ratio, canvas_size, refine_net)
 
     # Save results
+    #print(polys)
+    if len(polys)>0:
+        save_crops(polys, image, result_folder, filename)
     file_utils.saveResult(image_path, image[:, :, ::-1], polys, dirname=result_folder)
-    save_crops(polys, image, result_folder, filename)
+    
 

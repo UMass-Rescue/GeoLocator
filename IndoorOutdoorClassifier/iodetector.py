@@ -205,6 +205,9 @@ def run_iodetector(img_file):
     #for img_file in image_files:
     #print(img_file)
     img = Image.open(img_file)
+    if img.mode != 'RGB':
+            img = img.convert('RGB')
+    #print(np.array(img).shape)
     input_img = V(tf(img).unsqueeze(0))
 
     # forward pass
