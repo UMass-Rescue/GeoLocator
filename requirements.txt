@@ -11,6 +11,9 @@ spacy
 langdetect
 matplotlib
 folium
+opencv-python
+spacy-transformers
+
 #openmim
 #mmengine
 #mmcv==2.0.0rc4
