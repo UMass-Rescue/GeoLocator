@@ -15,7 +15,7 @@ image_paths = [
     'assets/fffb31ec87802a5a.jpg',
     'assets/ffe3f4c718e9ad0d.jpg',
     'assets/ffdf2c012fcee84d.jpg',
-    'assets/ffda1919cf90a8eb.jpg',
+    'assets/ffda1919cf90a8eb.jpg'
 ]
 
 # Initialize EasyOCR reader with multilingual support (modify languages as needed)
