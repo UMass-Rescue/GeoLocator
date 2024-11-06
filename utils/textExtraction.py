@@ -10,13 +10,13 @@ from langdetect import detect
 from spacy.matcher import PhraseMatcher
 
 # # List of image paths
-# image_paths = [
-#     'dataset/train_val_images/train_images/ffe3f4c718e9ad0d.jpg',
-#     'dataset/train_val_images/train_images/fffb31ec87802a5a.jpg',
-#     'dataset/train_val_images/train_images/ffda1919cf90a8eb.jpg',
-#     'dataset/train_val_images/train_images/ffdf2c012fcee84d.jpg',
-#     'dataset/train_val_images/train_images/ffbaa76bd8d172cf.jpg',
-# ]
+image_paths = [
+    'testImages/ffbaa76bd8d172cf.jpg',
+    'testImages/ffda1919cf90a8eb.jpg',
+    'testImages/ffdf2c012fcee84d.jpg',
+    'testImages/ffe3f4c718e9ad0d.jpg',
+    'testImages/fffb31ec87802a5a.jpg',
+]
 
 # Initialize EasyOCR reader with multilingual support (modify languages as needed)
 
