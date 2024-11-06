@@ -9,17 +9,18 @@ import spacy
 from langdetect import detect
 from spacy.matcher import PhraseMatcher
 
-# # List of image paths
+# List of image paths
 image_paths = [
-    'testImages/ffbaa76bd8d172cf.jpg',
-    'testImages/ffda1919cf90a8eb.jpg',
-    'testImages/ffdf2c012fcee84d.jpg',
-    'testImages/ffe3f4c718e9ad0d.jpg',
-    'testImages/fffb31ec87802a5a.jpg'
+     'testImages/fffb31ec87802a5a.jpg'
+    # 'testImages/ffbaa76bd8d172cf.jpg',
+    # 'testImages/ffda1919cf90a8eb.jpg',
+    # 'testImages/ffdf2c012fcee84d.jpg',
+    # 'testImages/ffe3f4c718e9ad0d.jpg'
+    
 ]
 
 # Initialize EasyOCR reader with multilingual support (modify languages as needed)
-
+reader = easyocr.Reader(['en'], gpu=True)
 
 # Define functions for text cleaning, language detection, and NER post-processing
 def clean_text(text):
@@ -48,28 +49,29 @@ def initialize_phrase_matcher(nlp):
     matcher.add("LocationMatcher", patterns)
     return matcher
 
-def get_location_from_text(image):
-    #print(f"\nProcessing image")
-    reader = easyocr.Reader(['en'], gpu=True)
+# Process each image
+for image_path in image_paths:
+    print(f"\nProcessing image: {image_path}")
+
     # Step 1: Extract Text from the Image with EasyOCR
-    result = reader.readtext(image)
+    result = reader.readtext(image_path)
     ocr_data = []
     for (bbox, text, conf) in result:
-        #print(f"Detected Text: '{text}' with confidence {conf:.2f}")
+        print(f"Detected Text: '{text}' with confidence {conf:.2f}")
         ocr_data.append(text)
 
     # Concatenate all detected text for further processing
     full_text = ' '.join(ocr_data)
-    #print("\nFull Extracted Text:")
-    #print(full_text)
+    print("\nFull Extracted Text:")
+    print(full_text)
 
     # Step 2: Detect Language of Extracted Text
-    #print("\nDetecting language of the extracted text...")
+    print("\nDetecting language of the extracted text...")
     try:
         detected_lang = detect(full_text)
-        #print(f"Detected Language: {detected_lang}")
+        print(f"Detected Language: {detected_lang}")
     except Exception as e:
-        #print(f"Language detection failed: {e}")
+        print(f"Language detection failed: {e}")
         detected_lang = 'en'
 
     # Step 3: Load spaCy NER Model Based on Language Detection
@@ -77,14 +79,14 @@ def get_location_from_text(image):
         try:
             nlp = spacy.load('en_core_web_trf')
         except OSError:
-            #print("Downloading 'en_core_web_trf' model...")
+            print("Downloading 'en_core_web_trf' model...")
             os.system('python -m spacy download en_core_web_trf')
             nlp = spacy.load('en_core_web_trf')
     else:
         try:
             nlp = spacy.load('xx_ent_wiki_sm')
         except OSError:
-            #print("Downloading 'xx_ent_wiki_sm' model...")
+            print("Downloading 'xx_ent_wiki_sm' model...")
             os.system('python -m spacy download xx_ent_wiki_sm')
             nlp = spacy.load('xx_ent_wiki_sm')
 
@@ -93,14 +95,14 @@ def get_location_from_text(image):
 
     # Step 4: Clean the OCR Text
     cleaned_text = clean_text(full_text)
-    #print("\nCleaned Text:")
-    #print(cleaned_text)
+    print("\nCleaned Text:")
+    print(cleaned_text)
 
     # Step 5: Perform Named Entity Recognition (NER) to Find Locations
     doc = nlp(cleaned_text)
     locations = [ent.text for ent in doc.ents if ent.label_ == 'GPE']  # GPE = Geopolitical Entity
     locations = post_process_ner(locations)
-    #print("\nRecognized Locations (NER):", locations)
+    print("\nRecognized Locations (NER):", locations)
 
     # Step 6: Use PhraseMatcher to Find Known Locations
     def apply_phrase_matcher(text):
@@ -110,11 +112,11 @@ def get_location_from_text(image):
         return matched_locs
 
     matched_locations = apply_phrase_matcher(cleaned_text)
-    #print("\nMatched Locations (PhraseMatcher):", matched_locations)
+    print("\nMatched Locations (PhraseMatcher):", matched_locations)
 
     # Combine NER and PhraseMatcher results
     all_locations = set(locations + matched_locations)
-    #print("\nCombined Recognized Locations (NER + PhraseMatcher):", list(all_locations))
+    print("\nCombined Recognized Locations (NER + PhraseMatcher):", list(all_locations))
 
     # Step 7: Regex Fallback for Additional Matching
     def regex_fallback(text):
@@ -124,9 +126,7 @@ def get_location_from_text(image):
 
     # Use regex fallback if no locations are found
     if not all_locations:
-        #print("\nFallback: Using regex matching.")
+        print("\nFallback: Using regex matching.")
         all_locations = regex_fallback(cleaned_text)
 
-    #print("\nFinal Recognized Locations:", list(all_locations))
-    return detected_lang,all_locations
-
+    print("\nFinal Recognized Locations:", list(all_locations))
