@@ -11,11 +11,11 @@ from spacy.matcher import PhraseMatcher
 
 # List of image paths
 image_paths = [
-    'dataset/train_val_images/train_images/ffe3f4c718e9ad0d.jpg',
-    'dataset/train_val_images/train_images/fffb31ec87802a5a.jpg',
-    'dataset/train_val_images/train_images/ffda1919cf90a8eb.jpg',
-    'dataset/train_val_images/train_images/ffdf2c012fcee84d.jpg',
-    'dataset/train_val_images/train_images/ffbaa76bd8d172cf.jpg',
+    'assets/ffbaa76bd8d172cf.jpg',
+    'assets/fffb31ec87802a5a.jpg',
+    'assets/ffe3f4c718e9ad0d.jpg',
+    'assets/ffdf2c012fcee84d.jpg',
+    'assets/ffda1919cf90a8eb.jpg',
 ]
 
 # Initialize EasyOCR reader with multilingual support (modify languages as needed)
