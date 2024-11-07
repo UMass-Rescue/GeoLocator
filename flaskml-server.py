@@ -1,6 +1,6 @@
 from flask_ml.flask_ml_server import MLServer
 from flask_ml.flask_ml_server.models import (
-    BatchFileInput, BatchTextResponse, ResponseBody, TaskSchema, InputSchema, InputType, ParameterSchema
+    BatchFileInput, BatchTextResponse, ResponseBody, TaskSchema, InputSchema, InputType, ParameterSchema, TextParameterDescriptor
 )
 from geoclipModule.geoclip import detect_location_from_image
 from IndoorOutdoorClassifier.iodetector import run_iodetector
@@ -18,7 +18,12 @@ server = MLServer(__name__)
 def image_task_schema() -> TaskSchema:
     return TaskSchema(
         inputs=[InputSchema(key="image_input", label="Upload Images", input_type=InputType.BATCHFILE)],
-        parameters=[ParameterSchema(key="output_path", label="Output JSON Path", default="output.json")]
+        parameters=[ParameterSchema(
+            key="output_path",
+            label="Output JSON Path",
+            default="output.json",
+            value_type=TextParameterDescriptor()
+        )]
     )
 
 # Define the TypedDict for image inputs
