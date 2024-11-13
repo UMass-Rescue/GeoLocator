@@ -2,7 +2,6 @@ import json
 import os
 import shutil
 from typing import List, TypedDict
-
 from flask_ml.flask_ml_server import MLServer, load_file_as_string
 from flask_ml.flask_ml_server.models import (BatchFileInput, BatchTextResponse,
                                              FileInput, FileResponse, FileType,
@@ -10,7 +9,6 @@ from flask_ml.flask_ml_server.models import (BatchFileInput, BatchTextResponse,
                                              NewFileInputType, ParameterSchema,
                                              ResponseBody, TaskSchema,
                                              TextParameterDescriptor)
-
 from geoclipModule.geoclip import detect_location_from_image
 from IndoorOutdoorClassifier.iodetector import run_iodetector
 from TextSpotter.Craft.textspot import run_craft
@@ -26,8 +24,6 @@ server.add_app_metadata(
     info=load_file_as_string("./README.md"),
 )
 
-
-# Define input schema for image processing
 def image_task_schema() -> TaskSchema:
     return TaskSchema(
         inputs=[
@@ -47,17 +43,12 @@ def image_task_schema() -> TaskSchema:
         parameters=[],
     )
 
-
-# Define the TypedDict for image inputs
 class ImageInputs(TypedDict):
     image_input: BatchFileInput
     output_path: FileInput
 
-
 class ImageParameters(TypedDict): ...
 
-
-# Helper function to append data to JSON
 def append_to_json(file_path, data):
     if os.path.exists(file_path):
         with open(file_path, "r+") as file:
@@ -65,80 +56,73 @@ def append_to_json(file_path, data):
                 existing_data = json.load(file)
             except json.JSONDecodeError:
                 existing_data = []
-            if isinstance(existing_data, list):
-                existing_data.append(data)
-            else:
-                existing_data = [existing_data, data]
+            existing_data.append(data) if isinstance(existing_data, list) else [existing_data, data]
             file.seek(0)
             json.dump(existing_data, file, indent=4)
     else:
         with open(file_path, "w") as file:
             json.dump([data], file, indent=4)
 
-
-# Main processing function
-@server.route(
-    "/process_images", task_schema_func=image_task_schema, short_title="Result"
-)
+@server.route("/process_images", task_schema_func=image_task_schema, short_title="Result")
 def process_images(inputs: ImageInputs, parameters: ImageParameters) -> ResponseBody:
     results = []
     temp_folder = "temp"
     os.makedirs(temp_folder, exist_ok=True)
-
+    
     for img_file in inputs["image_input"].files:
-        # Indoor/Outdoor detection
+        print("Processing image:", img_file.path)
+        
         io_result = run_iodetector(img_file.path)
-
-        # Geolocation detection
+        print("IO Detection Result:", io_result)
+        
         geo_result = detect_location_from_image(img_file.path, io_result)
+        print("Geo Detection Result:", geo_result)
 
-        # Text detection and language/location extraction
         textspot_results = []
-        # run_craft(img_file.path, result_folder=temp_folder)
-        run_craft(
-            image_path=img_file.path,
-            result_folder="temp/",
-            trained_model="TextSpotter/Craft/weights/craft_mlt_25k.pth",
-            text_threshold=0.7,
-            low_text=0.3,
-            link_threshold=0.4,
-            cuda=False,
-            canvas_size=1280,
-            mag_ratio=1.5,
-            poly=False,
-            refine=False,
-        )
-        languages = []
-        locations = []
+        try:
+            run_craft(
+                image_path=img_file.path,
+                result_folder=temp_folder,
+                trained_model="TextSpotter/Craft/weights/craft_mlt_25k.pth",
+                text_threshold=0.7,
+                low_text=0.3,
+                link_threshold=0.4,
+                cuda=False,
+                canvas_size=1280,
+                mag_ratio=1.5,
+                poly=False,
+                refine=False,
+            )
+        except Exception as e:
+            print(f"Error running CRAFT on {img_file.path}: {e}")
+            continue
 
+        languages, locations = [], []
         for processed_img in os.listdir(temp_folder):
             if processed_img.endswith((".jpg", ".png")):
-                language, location = get_location_from_text(
-                    os.path.join(temp_folder, processed_img)
-                )
-                languages.append(language)
-                locations.extend(location)
+                processed_path = os.path.join(temp_folder, processed_img)
+                try:
+                    language, location = get_location_from_text(processed_path)
+                    languages.append(language)
+                    locations.extend(location)
+                except Exception as e:
+                    print(f"Error processing {processed_path}: {e}")
 
-        # Clean up temporary folder
-        for file in os.listdir(temp_folder):
-            os.remove(os.path.join(temp_folder, file))
+        textspot_results.append({
+            "Languages Detected": list(set(languages)),
+            "Locations Detected from Text": list(set(locations)),
+        })
 
-        textspot_results.append(
-            {
-                "Languages Detected": list(set(languages)),
-                "Locations Detected from Text": list(set(locations)),
-            }
-        )
-
-        # Merge results
         geo_result["Languages Detected"] = list(set(languages))
         geo_result["Locations Detected from Text"] = list(set(locations))
         results.append(geo_result)
 
-    # Save to output JSON file
-    append_to_json(inputs["output_path"].path, results)
+    try:
+        append_to_json(inputs["output_path"].path, results)
+        print("Results written to:", inputs["output_path"].path)
+    except Exception as e:
+        print(f"Failed to write results: {e}")
 
-    # Remove the temp directory after processing
     shutil.rmtree(temp_folder)
 
     return ResponseBody(
@@ -149,7 +133,5 @@ def process_images(inputs: ImageInputs, parameters: ImageParameters) -> Response
         )
     )
 
-
-# Run the server
 if __name__ == "__main__":
     server.run()
