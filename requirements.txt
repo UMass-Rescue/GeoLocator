@@ -13,7 +13,7 @@ matplotlib
 folium
 opencv-python
 spacy-transformers
-
+flask-ml==0.2.5
 #openmim
 #mmengine
 #mmcv==2.0.0rc4

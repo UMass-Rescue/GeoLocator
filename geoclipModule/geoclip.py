@@ -1,4 +1,3 @@
-from geoclip import GeoCLIP
 # Image Upload & Display
 from PIL import Image
 from io import BytesIO
@@ -12,11 +11,10 @@ import folium
 from folium.plugins import HeatMap
 from geopy.geocoders import Nominatim
 from collections import defaultdict
-def detect_location_from_image(img_path,jsonfile):
-    model = GeoCLIP()
+def detect_location_from_image(model,img_path,jsonfile):
 
     # Make predictions
-    top_pred_gps, top_pred_prob = model.predict(img_path, top_k=50)
+    top_pred_gps, top_pred_prob = model.predict(img_path, top_k=5)
 
     geoLoc = Nominatim(user_agent="GetLoc")
     
@@ -27,7 +25,7 @@ def detect_location_from_image(img_path,jsonfile):
     #print("========================")
 
     save_predictions = defaultdict(int)
-    for i in range(10):
+    for i in range(5):
         lat, lon = top_pred_gps[i]
         #print(f"Prediction {i+1}: ({lat:.6f}, {lon:.6f}) - Probability: {top_pred_prob[i]:.6f}")
         locname = str(geoLoc.reverse((lat, lon)))
