@@ -50,7 +50,7 @@ def initialize_phrase_matcher(nlp):
 
 def get_location_from_text(image):
     #print(f"\nProcessing image")
-    reader = easyocr.Reader(['en'], gpu=True)
+    reader = easyocr.Reader(['en'], gpu=False)
     # Step 1: Extract Text from the Image with EasyOCR
     result = reader.readtext(image)
     ocr_data = []
