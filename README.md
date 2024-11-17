@@ -1,14 +1,16 @@
-# Text Extraction with OCR and NER
-This project performs Optical Character Recognition (OCR) and Named Entity Recognition (NER) on images using EasyOCR and spaCy. We utilize the TextOCR dataset to extract text from images, detect the language, and identify geopolitical entities (locations) within the extracted text.
+## GeoLocator
 
-## Key Dependencies
+The GeoLocator application is designed to assist in location identification from anonymous images, integrating several machine learning techniques to provide accurate predictions. The key components of the application include:
 
-- **easyocr**: For OCR text extraction from images.
-- **spacy**: For Named Entity Recognition (NER) with language models `en_core_web_trf` (English transformer-based model) and `xx_ent_wiki_sm` (multilingual).
-- **langdetect**: For detecting the language of the extracted text.
-- **tqdm**: For displaying progress bars.
-- **pandas**: For data handling and analysis.
-- **Pillow**: For image processing.
+- Indoor/Outdoor Scene Recognition: The application first classifies whether an image depicts an indoor or outdoor scene, providing context for further geolocation processing.
+- GeoCLIP (Location Prediction): Utilizing the CLIP model, the application generates image embeddings and correlates them with geographical latitude and longitude data to predict the likely location. This enables rough geolocation based on visual features.
+- Text Script/Language Detection: If textual information is present in the image, the tool detects the script and identifies the language, adding additional context for location inference.
+- OCR (Optical Character Recognition): The application applies OCR to extract visible text from images, which may include signs, street names, or other clues useful for location detection.
+- Named Entity Recognition (NER): Finally, the extracted text undergoes Named Entity Recognition to identify geographical entities such as cities, countries, or landmarks, refining the location prediction.
+
+By combining these techniques, GeoLocator provides a powerful tool for identifying regions from anonymous images without metadata, aiding law enforcement and investigators in tracking crime scenes.
+
+
 
 ## Installation
 
@@ -21,6 +23,20 @@ cd GeoLocator
 ```bash
 pip install -r requirements.txt
 ```
+
+# Text Extraction with OCR and NER
+This project performs Optical Character Recognition (OCR) and Named Entity Recognition (NER) on images using EasyOCR and spaCy. We utilize the TextOCR dataset to extract text from images, detect the language, and identify geopolitical entities (locations) within the extracted text.
+
+## Key Dependencies
+
+- **easyocr**: For OCR text extraction from images.
+- **spacy**: For Named Entity Recognition (NER) with language models `en_core_web_trf` (English transformer-based model) and `xx_ent_wiki_sm` (multilingual).
+- **langdetect**: For detecting the language of the extracted text.
+- **tqdm**: For displaying progress bars.
+- **pandas**: For data handling and analysis.
+- **Pillow**: For image processing.
+
+
 ### Download the required spaCy models:
 ```bash
 python -m spacy download en_core_web_trf
