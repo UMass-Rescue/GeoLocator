@@ -15,6 +15,7 @@ opencv-python
 spacy-transformers
 flask-ml==0.2.5
 googletrans==4.0.0-rc1
+pycountry
 #openmim
 #mmengine
 #mmcv==2.0.0rc4

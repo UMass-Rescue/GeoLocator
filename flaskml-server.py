@@ -130,31 +130,36 @@ def process_images(inputs: ImageInputs, parameters: ImageParameters) -> Response
             print(f"Error running CRAFT on {img_file.path}: {e}")
             continue  # Skip to next image if there's an error
         if len(os.listdir(temp_folder))>2:
-
+            language_detected = set()
             languages, locations = [], []  # Initialize lists for languages and locations detected from text
             for processed_img in os.listdir(temp_folder):
                 if processed_img.endswith((".jpg", ".png")):
                     processed_path = os.path.join(temp_folder, processed_img)
-                    try:
-                        # Detect language and location from the text in the processed image
-                        language_detected = get_lang_code(processed_path)
-                        print(language_detected)
-            
-                        language, location = get_location_from_text(processed_path)
-                        languages.append(language)
-                        locations.extend(location)
-                    except Exception as e:
-                        print(f"Error processing {processed_path}: {e}")
+                    
+                    # Detect language and location from the text in the processed image
+                    language = get_lang_code(processed_path)
+                    if language:
+                         
+                        language_detected.add(language.split(" ")[0])
+                    
+        
+                    language, location = get_location_from_text(processed_path)
+                    languages.append(language)
+                    locations.extend(location)
+
 
             # Append text detection results to the results list
+            #print("Rahasya Language Detected",language_detected)
             textspot_results.append({
                 "Languages Detected": list(set(languages)),
                 "Locations Detected from Text": list(set(locations)),
             })
+            language_detected.add("English")
 
             # Merge textspot results into the geo_result
             geo_result["Languages Detected"] = list(set(languages))
             geo_result["Locations Detected from Text"] = list(set(locations))
+            geo_result["Languages Detected Method 2"] = list(language_detected)
             results.append(geo_result)
 
         # Clean up the temporary folder after processing

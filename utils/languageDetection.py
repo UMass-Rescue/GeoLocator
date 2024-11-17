@@ -5,6 +5,8 @@ from transformers import CLIPProcessor, CLIPModel
 import numpy as np
 import easyocr
 from googletrans import Translator
+from utils.countryFromLanguages import get_location_from_language 
+from utils.locationDetailFromLanguageCode import get_location_from_languagecode
 
 
 # List of 100 language codes
@@ -31,9 +33,11 @@ translator = Translator()
 # Function to translate a list of texts to English
 def translate_to_english(texts, source_lang='auto'):
     translated_texts = []
+    #print(texts)
     for text in texts:
         # Translate the text to English
         translated = translator.translate(text, src=source_lang, dest='en')
+        #print(translated)
         translated_texts.append(translated.text)
     return translated_texts
 
@@ -47,6 +51,7 @@ processor = CLIPProcessor.from_pretrained("openai/clip-vit-base-patch32")
 #image_url = "/content/sample_data/w.jpg"
 #image = Image.open(requests.get(image_url, stream=True).raw).convert("RGB")
 def get_lang_code(image_path):
+    #print("OCR Rahasya Data")
     image = Image.open(image_path).convert("L")
 
     # Prepare image and prompt texts (you can create a list of languages for language detection)
@@ -67,29 +72,36 @@ def get_lang_code(image_path):
     probability_value = probs[0, best_match_idx].item()  # Get the probability as a float
     #print(int(np.max(probs)))
     detected_language = texts[best_match_idx]
-    print(image_path,": Detected Language:", detected_language, "with probability", probability_value)
-    lang_list = ['en']
-    if probability_value>0.3:
-        #return ['en',Language.find(detected_language)]
-        lang_list.append(Language.find(detected_language).language)
-    #text = pytesseract.image_to_string(image, lang='eng+fra')
-    print(lang_list)
-    #print(text)
-    reader = easyocr.Reader(lang_list, gpu=False)
-    # Step 1: Extract Text from the Image with EasyOCR
-    result = reader.readtext(image_path)
-    ocr_data = []
-    for (bbox, text, conf) in result:
-        #print(f"Detected Text: '{text}' with confidence {conf:.2f}")
-        ocr_data.append(text)
-    print("OCR Rahasya Data")
-    print(ocr_data)
 
-    if len(lang_list)>1:
-        translated_texts = translate_to_english(ocr_data, source_lang=lang_list[-1])
-        print("Translated Texts:")
-        for text in translated_texts:
-            print(text)
+    ###Added temporarily only for presenation
+    if probability_value>0.3:
+        return detected_language
+
+    #print(image_path,": Detected Language:", detected_language, "with probability", probability_value)
+    #lang_list = ['en']
+    #if probability_value>0.3:
+        #return ['en',Language.find(detected_language)]
+        #lang_list.append(Language.find(detected_language).language)
+    #text = pytesseract.image_to_string(image, lang='eng+fra')
+    #print(lang_list)
+    #print(text)
+    #reader = easyocr.Reader(lang_list, gpu=False)
+    # Step 1: Extract Text from the Image with EasyOCR
+    #result = reader.readtext(image_path)
+    #ocr_data = []
+    #for (bbox, text, conf) in result:
+        #print(f"Detected Text: '{text}' with confidence {conf:.2f}")
+        #ocr_data.append(text)
+    
+    #print(ocr_data)
+    #print("PyCountry",get_location_from_language(lang_list[-1]))
+    #print("geopy",get_location_from_languagecode(lang_list[-1]))
+
+    # if len(lang_list)>1:
+    #     translated_texts = translate_to_english(ocr_data, source_lang=lang_list[-1])
+    #     print("Translated Texts:")
+    #     for text in translated_texts:
+    #         print(text)
 
 
 
