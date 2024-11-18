@@ -37,7 +37,8 @@ op.json
 # Installer logs
 pip-log.txt
 pip-delete-this-directory.txt
-
+*.json
+*.png
 # Unit test / coverage reports
 htmlcov/
 .tox/

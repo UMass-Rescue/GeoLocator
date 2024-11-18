@@ -3,6 +3,9 @@ import json
 import os
 import shutil
 from typing import List, TypedDict
+import warnings
+warnings.filterwarnings('ignore') 
+
 
 # Import Flask-ML and other components for creating an ML server
 from flask_ml.flask_ml_server import MLServer, load_file_as_string
@@ -87,7 +90,12 @@ def append_to_json(file_path, data):
 )
 def process_images(inputs: ImageInputs, parameters: ImageParameters) -> ResponseBody:
     results = []  # Store results for each processed image
-    temp_folder = "temp"
+    temp_folder = "temp/"
+    shutil.rmtree(temp_folder, ignore_errors=True)
+    output_path = inputs["output_path"].path
+    os.remove(output_path) if os.path.exists(output_path) else None
+
+
     os.makedirs(temp_folder, exist_ok=True)
 
     # Process each image uploaded by the user
@@ -95,13 +103,16 @@ def process_images(inputs: ImageInputs, parameters: ImageParameters) -> Response
         print("Processing image:", img_file.path)
 
         # Run Indoor/Outdoor detector
+        print("Predicting Indoor Outdor and Scene Type")
         io_result = run_iodetector(img_file.path)
         print("IO Detection Result:", io_result)
 
         # Run GeoClip model for location detection based on the image
+        print("Prediction Location using GeoCLIP")
         geo_result = detect_location_from_image(img_file.path, io_result)
         print("Geo Detection Result:", geo_result)
 
+        print("Checking for text")
         textspot_results = []
         try:
             # Run the CRAFT model for text detection on the image
@@ -151,7 +162,6 @@ def process_images(inputs: ImageInputs, parameters: ImageParameters) -> Response
         results.append(geo_result)
 
     # Define the output JSON file path from inputs and write results to it
-    output_path = inputs["output_path"].path
     try:
         append_to_json(output_path, results)
         print("Results written to:", output_path)
