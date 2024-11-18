@@ -29,6 +29,11 @@ venv\Scripts\activate  # For Windows
 ```bash
 pip install -r requirements.txt
 ```
+### CUDA Support
+If you have a GPU, enable CUDA in the CRAFT module for faster processing.
+```python
+cuda=True
+```
 
 ### Running the Server
 To start the Flask-ML server:
