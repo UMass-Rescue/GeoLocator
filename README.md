@@ -12,7 +12,7 @@ By combining these techniques, GeoLocator provides a powerful tool for identifyi
 
 ## Installation and Setup
 
-### Clone the repository:
+### Clone the Repository:
 ```bash
 git clone https://github.com/UMass-Rescue/GeoLocator.git
 cd GeoLocator
