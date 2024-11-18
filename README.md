@@ -10,8 +10,6 @@ The GeoLocator application is designed to assist in location identification from
 
 By combining these techniques, GeoLocator provides a powerful tool for identifying regions from anonymous images without metadata, aiding law enforcement and investigators in tracking crime scenes.
 
-
-
 ## Installation and Setup
 
 ### Clone the repository:
@@ -19,18 +17,38 @@ By combining these techniques, GeoLocator provides a powerful tool for identifyi
 git clone https://github.com/UMass-Rescue/GeoLocator.git
 cd GeoLocator
 ```
-### Install the requirements:
+
+### Set Up a Virtual Environment
+```
+python -m venv venv
+source venv/bin/activate  # For Mac/Linux
+venv\Scripts\activate  # For Windows
+```
+
+### Install Dependencies
 ```bash
 pip install -r requirements.txt
 ```
-### Run Backend
+
+### Running the Server
+To start the Flask-ML server:
 ```bash
 python flaskml-server.py
 ```
-### Rescue Desktop
-Use Rescue Desktop UI for a seamless user experience
-Register the model application using the IP address and port
-You can submit a job by running the registered GeoLocator model and providing images and the JSON file in which you want the response to be saved.
+The server will run on http://127.0.0.1:5000 by default.
+
+### Using the Frontend (RescueBox)
+- Open the RescueBox interface.
+- Register the model with the server's IP address (127.0.0.1) and port (5000).
+- Upload images to the "GeoLocator" model.
+- Provide an output JSON file path (e.g., /Users/username/Desktop/output.json).
+- Click "Run Model" to process the images and retrieve the results.
+
+### Output
+The output is a JSON file containing:
+- Detected Locations: Geographic locations identified from images.
+- Detected Languages: Languages found in the extracted text.
+- Indoor/Outdoor Classification: Information about the environment in which the image was captured.
 
 
 ## Individual Phases Explanation
@@ -127,12 +145,6 @@ For Image:
 ![Architecture](Images/x.jpg)|
 |:--:|
 | <b> Fig.1 -  Output Image </b>|
-
-
-
-
-
-
 
 
 
