@@ -59,11 +59,36 @@ The output is a JSON file containing:
 ## Individual Phases Explanation
 
 ### Phase 1: Indoor Outdoor Classification
+The dataset used is Places 365 (365 categories), out of which Indoor → 160 categories and Outdoor → 205 categories.
+To test 
+
+    !cd IndoorOutdoorClassifier
+    !python
+    iodetector.test_iodetector()
+
+
 
 ### Phase 2: GeoCLIP
+To initialise geoclip model
+
+    !python geoclipModule/run.py
+
+When the application instance is launched, a pop-up window appears, allowing users to select the image they want to determine the geographic location. The model then provides 10 possible latitude and longitude coordinates and identifies the states corresponding to these 10 geographic locations.
 
 ### Phase 3:  Text Spotter
+#### CRAFT Implementation
+To Test Craft implementation, run the following commands
 
+    %cd TextSpotter/Craft
+    !python test.py --trained_model="weights/craft_mlt_25k.pth" --test_folder={folder of test images}
+
+
+#### MMOCR Implementation
+To test mmocr implementation, execute following commands
+
+      %cd TextSpotter/mmocr
+      !mim install -e .
+      !python tools/infer.py {testfolder/image} --det {textdetectormodel: For eg. DBNet} --print-result
 
 
 
@@ -113,43 +138,6 @@ The script will:
 - Ensure you have a GPU available to leverage `gpu=True` in EasyOCR for faster processing.
 - Update the `known_locations` list in the PhraseMatcher function to add or modify location patterns as needed.
 - Modify the `image_paths` list with paths to the images you want to process.
-
-## Part 1: GeoCLIP Implementation
-To initialise geoclip model
-
-    !python geoclip/run.py
-
-When the application instance is launched, a pop-up window appears, allowing the user to select the image for which they want to determine the geographic location. The model then provides 10 possible latitude and longitude coordinates and identifies the states corresponding to these 10 geographic locations.
-
-## Part 2: Test Spotter
-### CRAFT Implementation
-To Test Craft implementation, run the following commands
-
-    %cd TextSpotter/Craft
-    !python test.py --trained_model="weights/craft_mlt_25k.pth" --test_folder={folder of test images}
-
-
-### MMOCR Implementation
-To test mmocr implementation, execute following commands
-
-      %cd TextSpotter/mmocr
-      !mim install -e .
-      !python tools/infer.py {testfolder/image} --det {textdetectormodel: For eg. DBNet} --print-result
-
-### Sample
-
-
-For Image:
-![Architecture](testImages/x.jpg)|
-|:--:|
-| <b> Fig.1 -  Test Image </b>|
-
-
-Output Predicted by Craft and DBANEt
-For Image:
-![Architecture](Images/x.jpg)|
-|:--:|
-| <b> Fig.1 -  Output Image </b>|
 
 
 
