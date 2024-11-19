@@ -2,9 +2,10 @@
 import json
 import os
 import shutil
-from typing import List, TypedDict
 import warnings
-warnings.filterwarnings('ignore') 
+from typing import List, TypedDict
+
+warnings.filterwarnings("ignore")
 
 
 # Import Flask-ML and other components for creating an ML server
@@ -95,7 +96,6 @@ def process_images(inputs: ImageInputs, parameters: ImageParameters) -> Response
     output_path = inputs["output_path"].path
     os.remove(output_path) if os.path.exists(output_path) else None
 
-
     os.makedirs(temp_folder, exist_ok=True)
 
     # Process each image uploaded by the user
@@ -120,14 +120,14 @@ def process_images(inputs: ImageInputs, parameters: ImageParameters) -> Response
                 image_path=img_file.path,
                 result_folder=temp_folder,
                 trained_model="TextSpotter/Craft/weights/craft_mlt_25k.pth",
-                text_threshold=0.7,
-                low_text=0.3,
-                link_threshold=0.4,
-                cuda=False,
-                canvas_size=1280,
-                mag_ratio=1.5,
-                poly=False,
-                refine=False,
+                text_threshold=0.7, # Lower threshold for quicker detection
+                low_text=0.3,       # Higher value to exclude faint text
+                link_threshold=0.4, # Higher value for faster linkage
+                cuda=False,         # Enable GPU acceleration for faster processing
+                canvas_size=1280,   # Reduce canvas size for faster processing
+                mag_ratio=1.5,      # Lower magnification for faster resizing
+                poly=False,         # Skip polygonal representation for simpler processing
+                refine=False,       # Keep refinement disabled
             )
         except Exception as e:
             print(f"Error running CRAFT on {img_file.path}: {e}")
