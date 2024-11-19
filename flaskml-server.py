@@ -2,6 +2,7 @@
 import json
 import os
 import shutil
+import warnings
 from typing import List, TypedDict
 import warnings
 from geoclip import GeoCLIP
@@ -27,13 +28,14 @@ from utils.languageDetection import get_lang_code
 # Initialize Flask-ML server
 server = MLServer(__name__)
 
-# Add application metadata, like author and version information, by loading from README
+# Add application metadata
 server.add_app_metadata(
     name="GeoLocator",
     author="Islam",
-    version="0.1.0",
+    version="0.3.4",
     info=load_file_as_string("./README.md"),
 )
+
 
 # Define schema for image processing task inputs and outputs
 def image_task_schema() -> TaskSchema:
@@ -55,55 +57,61 @@ def image_task_schema() -> TaskSchema:
         parameters=[],
     )
 
+
 # Define types for the image inputs and parameters
 class ImageInputs(TypedDict):
     image_input: BatchFileInput
     output_path: FileInput
 
-class ImageParameters(TypedDict):
-    ...
+
+class ImageParameters(TypedDict): ...
+
 
 # Function to append data to an existing JSON file, or create it if it doesn't exist
 def append_to_json(file_path, data):
     if os.path.exists(file_path):
         with open(file_path, "r+") as file:
             try:
-                # Load existing data
                 existing_data = json.load(file)
             except json.JSONDecodeError:
-                # If the JSON file is empty or corrupt, start with an empty list
                 existing_data = []
             # Append new data to existing data if it's a list
             if isinstance(existing_data, list):
                 existing_data.append(data)
             else:
-                # If not a list, convert to list format
                 existing_data = [existing_data, data]
-            # Write updated data to file
             file.seek(0)
             json.dump(existing_data, file, indent=4)
     else:
-        # If file doesn't exist, create a new one with data as the initial content
         with open(file_path, "w") as file:
             json.dump([data], file, indent=4)
 
+
 # Define route for processing images
-@server.route("/process_images", task_schema_func=image_task_schema, short_title="Result")
+@server.route(
+    "/process_images", task_schema_func=image_task_schema, short_title="Result"
+)
 def process_images(inputs: ImageInputs, parameters: ImageParameters) -> ResponseBody:
     results = []  # Store results for each processed image
     temp_folder = "temp/"  # Temporary folder to store processed images
     model = GeoCLIP()
+    shutil.rmtree(temp_folder, ignore_errors=True)
+    output_path = inputs["output_path"].path
+    os.remove(output_path) if os.path.exists(output_path) else None
+
+    os.makedirs(temp_folder, exist_ok=True)
 
     # Process each image uploaded by the user
     for img_file in inputs["image_input"].files:
         os.makedirs(temp_folder, exist_ok=True)  # Create temp folder if it doesn't exist
 
         print("Processing image:", img_file.path)
-        
+
         # Run Indoor/Outdoor detector
+        print("Predicting Indoor Outdor and Scene Type")
         io_result = run_iodetector(img_file.path)
         print("IO Detection Result:", io_result)
-        
+
         # Run GeoClip model for location detection based on the image
         geo_result = detect_location_from_image(model,img_file.path, io_result)
         print("Geo Detection Result:", geo_result)
@@ -117,14 +125,14 @@ def process_images(inputs: ImageInputs, parameters: ImageParameters) -> Response
                 image_path=img_file.path,
                 result_folder=temp_folder,
                 trained_model="TextSpotter/Craft/weights/craft_mlt_25k.pth",
-                text_threshold=0.7,
-                low_text=0.3,
-                link_threshold=0.4,
-                cuda=False,  # Set cuda=False to run on CPU
-                canvas_size=1280,
-                mag_ratio=1.5,
-                poly=False,
-                refine=False,
+                text_threshold=0.7, # Lower threshold for quicker detection
+                low_text=0.3,       # Higher value to exclude faint text
+                link_threshold=0.4, # Higher value for faster linkage
+                cuda=False,         # Enable GPU acceleration for faster processing
+                canvas_size=1280,   # Reduce canvas size for faster processing
+                mag_ratio=1.5,      # Lower magnification for faster resizing
+                poly=False,         # Skip polygonal representation for simpler processing
+                refine=False,       # Keep refinement disabled
             )
         except Exception as e:
             print(f"Error running CRAFT on {img_file.path}: {e}")
@@ -167,17 +175,11 @@ def process_images(inputs: ImageInputs, parameters: ImageParameters) -> Response
                         print("No Text Spotted in the image")
                         results.append(geo_result)
 
-        shutil.rmtree(temp_folder)
 
 
     # Define the output JSON file path from inputs and write results to it
-    output_path = inputs["output_path"].path  # Extract the file path for JSON output
-
-    if os.path.exists(output_path):
-        os.remove(output_path)
-        print(f"File '{output_path}' deleted successfully.")
     try:
-        append_to_json(output_path, results)  # Write results to JSON
+        append_to_json(output_path, results)
         print("Results written to:", output_path)
     except Exception as e:
         print(f"Failed to write results: {e}")
@@ -187,10 +189,11 @@ def process_images(inputs: ImageInputs, parameters: ImageParameters) -> Response
     return ResponseBody(
         root=FileResponse(
             file_type=FileType.JSON,
-            path=output_path,  # Only pass the path, which is JSON serializable
+            path=output_path,
             title="Report",
         )
     )
+
 
 # Run the server if this script is executed directly
 if __name__ == "__main__":

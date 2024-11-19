@@ -1,7 +1,101 @@
-# Text Extraction with OCR and NER
+# GeoLocator
+
+The GeoLocator application is designed to assist in location identification from anonymous images, integrating several machine learning techniques to provide accurate predictions. The key components of the application include:
+
+- Indoor/Outdoor Scene Recognition: The application first classifies whether an image depicts an indoor or outdoor scene, providing context for further geolocation processing.
+- GeoCLIP (Location Prediction): Utilizing the CLIP model, the application generates image embeddings and correlates them with geographical latitude and longitude data to predict the likely location. This enables rough geolocation based on visual features.
+- Text Detection/ Spotter: If textual information is present in the image, the tool detects the script and identifies the language, adding additional context for location inference.
+- OCR (Optical Character Recognition): The application applies OCR to extract visible text from images, which may include signs, street names, or other clues useful for location detection.
+- Named Entity Recognition (NER): Finally, the extracted text undergoes Named Entity Recognition to identify geographical entities such as cities, countries, or landmarks, refining the location prediction.
+
+By combining these techniques, GeoLocator provides a powerful tool for identifying regions from anonymous images without metadata, aiding law enforcement and investigators in tracking crime scenes.
+
+## Installation and Setup
+
+### Clone the Repository:
+```bash
+git clone https://github.com/UMass-Rescue/GeoLocator.git
+cd GeoLocator
+```
+
+### Set Up a Virtual Environment
+```
+python -m venv venv
+source venv/bin/activate  # For Mac/Linux
+venv\Scripts\activate  # For Windows
+```
+
+### Install Dependencies
+```bash
+pip install -r requirements.txt
+```
+### CUDA Support
+If you have a GPU, enable CUDA in the CRAFT module for faster processing.
+```python
+cuda=True
+```
+
+### Running the Server
+To start the Flask-ML server:
+```bash
+python flaskml-server.py
+```
+The server will run on http://127.0.0.1:5000 by default.
+
+### Using the Frontend (RescueBox)
+- Open the RescueBox interface.
+- Register the model with the server's IP address (127.0.0.1) and port (5000).
+- Upload images to the "GeoLocator" model.
+- Provide an output JSON file path (e.g., /Users/username/Desktop/output.json).
+- Click "Run Model" to process the images and retrieve the results.
+
+### Output
+The output is a JSON file containing:
+- Detected Locations: Geographic locations identified from images.
+- Detected Languages: Languages found in the extracted text.
+- Indoor/Outdoor Classification: Information about the environment in which the image was captured.
+
+
+## Individual Phases Explanation
+
+### Phase 1: Indoor Outdoor Classification
+The dataset used is Places 365 (365 categories), out of which Indoor → 160 categories and Outdoor → 205 categories.
+To test 
+
+    !cd IndoorOutdoorClassifier
+    !python
+    iodetector.test_iodetector()
+
+
+
+### Phase 2: GeoCLIP
+To initialise geoclip model
+
+    !python geoclipModule/run.py
+
+When the application instance is launched, a pop-up window appears, allowing users to select the image they want to determine the geographic location. The model then provides 10 possible latitude and longitude coordinates and identifies the states corresponding to these 10 geographic locations.
+
+### Phase 3:  Text Spotter
+#### CRAFT Implementation
+To Test Craft implementation, run the following commands
+
+    %cd TextSpotter/Craft
+    !python test.py --trained_model="weights/craft_mlt_25k.pth" --test_folder={folder of test images}
+
+
+#### MMOCR Implementation
+To test mmocr implementation, execute following commands
+
+      %cd TextSpotter/mmocr
+      !mim install -e .
+      !python tools/infer.py {testfolder/image} --det {textdetectormodel: For eg. DBNet} --print-result
+
+
+
+### Phase 4 and 5: Text Extraction with OCR and NER
 This project performs Optical Character Recognition (OCR) and Named Entity Recognition (NER) on images using EasyOCR and spaCy. We utilize the TextOCR dataset to extract text from images, detect the language, and identify geopolitical entities (locations) within the extracted text.
 
-## Key Dependencies
+#### Key Dependencies
 
 - **easyocr**: For OCR text extraction from images.
 - **spacy**: For Named Entity Recognition (NER) with language models `en_core_web_trf` (English transformer-based model) and `xx_ent_wiki_sm` (multilingual).
@@ -10,23 +104,13 @@ This project performs Optical Character Recognition (OCR) and Named Entity Recog
 - **pandas**: For data handling and analysis.
 - **Pillow**: For image processing.
 
-## Installation
 
-### Clone the repository:
-```bash
-git clone https://github.com/UMass-Rescue/GeoLocator.git
-cd GeoLocator
-```
-### Install the requirements:
-```bash
-pip install -r requirements.txt
-```
-### Download the required spaCy models:
+#### Download the required spaCy models:
 ```bash
 python -m spacy download en_core_web_trf
 python -m spacy download xx_ent_wiki_sm
 ```
-# Usage
+#### Usage
 Set Up Image Paths: Update the `image_paths` list in the script with the paths to your images.
 
 Run the Script:
@@ -42,7 +126,7 @@ The script will:
 - Use spaCy NER and PhraseMatcher to detect locations.
 - Use a regex fallback to match additional locations if needed.
 
-# Code Structure
+#### Code Structure
 - OCR Extraction: Uses EasyOCR to extract text from images.
 - Language Detection: Detects the language of the extracted text using `langdetect` to choose the appropriate NER model.
 - Text Cleaning: Cleans the OCR output text to improve NER performance.
@@ -50,61 +134,10 @@ The script will:
 - PhraseMatcher: Matches known locations using spaCy's PhraseMatcher.
 - Regex Fallback: Uses regex to match additional locations based on predefined patterns if no locations are detected.
 
-# Notes
+#### Notes
 - Ensure you have a GPU available to leverage `gpu=True` in EasyOCR for faster processing.
 - Update the `known_locations` list in the PhraseMatcher function to add or modify location patterns as needed.
 - Modify the `image_paths` list with paths to the images you want to process.
-
-# GeoLocator
-
-## Part 0: Install requirements
-To install dependencies execute the following command
-
-    pip install -r requirements.txt
-
-
-## Part 1: GeoCLIP Implementation
-To initialise geoclip model
-
-    !python geoclip/run.py
-
-When the application instance is launched, a pop-up window appears, allowing the user to select the image for which they want to determine the geographic location. The model then provides 10 possible latitude and longitude coordinates and identifies the states corresponding to these 10 geographic locations.
-
-## Part 2: Test Spotter
-### CRAFT Implementation
-To Test Craft implementation, run the following commands
-
-    %cd TextSpotter/Craft
-    !python test.py --trained_model="weights/craft_mlt_25k.pth" --test_folder={folder of test images}
-
-
-### MMOCR Implementation
-To test mmocr implementation, execute following commands
-
-      %cd TextSpotter/mmocr
-      !mim install -e .
-      !python tools/infer.py {testfolder/image} --det {textdetectormodel: For eg. DBNet} --print-result
-
-### Sample
-
-
-For Image:
-![Architecture](testImages/x.jpg)|
-|:--:|
-| <b> Fig.1 -  Test Image </b>|
-
-
-Output Predicted by Craft and DBANEt
-For Image:
-![Architecture](Images/x.jpg)|
-|:--:|
-| <b> Fig.1 -  Output Image </b>|
-
-
-
-
-
-
 
 
 
