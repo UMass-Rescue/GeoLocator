@@ -95,14 +95,13 @@ def process_images(inputs: ImageInputs, parameters: ImageParameters) -> Response
     results = []  # Store results for each processed image
     temp_folder = "temp/"  # Temporary folder to store processed images
     model = GeoCLIP()
-    shutil.rmtree(temp_folder, ignore_errors=True)
     output_path = inputs["output_path"].path
     os.remove(output_path) if os.path.exists(output_path) else None
 
-    os.makedirs(temp_folder, exist_ok=True)
 
     # Process each image uploaded by the user
     for img_file in inputs["image_input"].files:
+        shutil.rmtree(temp_folder, ignore_errors=True)
         os.makedirs(temp_folder, exist_ok=True)  # Create temp folder if it doesn't exist
 
         print("Processing image:", img_file.path)
@@ -113,7 +112,9 @@ def process_images(inputs: ImageInputs, parameters: ImageParameters) -> Response
         print("IO Detection Result:", io_result)
 
         # Run GeoClip model for location detection based on the image
+        print("Running GEOCLIP")
         geo_result = detect_location_from_image(model,img_file.path, io_result)
+        #geo_result = io_result
         print("Geo Detection Result:", geo_result)
 
         #language_detected = get_lang_code(img_file.path)

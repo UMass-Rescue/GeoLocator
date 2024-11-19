@@ -14,7 +14,7 @@ from collections import defaultdict
 def detect_location_from_image(model,img_path,jsonfile):
 
     # Make predictions
-    top_pred_gps, top_pred_prob = model.predict(img_path, top_k=5)
+    top_pred_gps, top_pred_prob = model.predict(img_path, top_k=50)
 
     geoLoc = Nominatim(user_agent="GetLoc")
     
