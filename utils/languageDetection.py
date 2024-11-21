@@ -3,10 +3,10 @@ import torch
 from PIL import Image
 from transformers import CLIPProcessor, CLIPModel
 import numpy as np
-import easyocr
-from googletrans import Translator
-from utils.countryFromLanguages import get_location_from_language 
-from utils.locationDetailFromLanguageCode import get_location_from_languagecode
+#import easyocr
+#from googletrans import Translator
+#from utils.countryFromLanguages import get_location_from_language 
+#from utils.locationDetailFromLanguageCode import get_location_from_languagecode
 
 
 # List of 100 language codes
