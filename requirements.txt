@@ -1,5 +1,5 @@
 geoclip
-openmim
+#openmim
 #Tkinter
 # Core dependencies
 pandas
@@ -10,7 +10,7 @@ torch #==1.7.1+cu101  # or compatible with your CUDA setup (update if needed)
 spacy
 langdetect
 matplotlib
-folium
+#folium
 opencv-python
 spacy-transformers
 flask-ml==0.2.5
