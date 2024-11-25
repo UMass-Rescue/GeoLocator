@@ -223,12 +223,16 @@ def run_iodetector(img_file):
             output["Environment Type"] = "Indoor"
     else:
             output["Environment Type"] = "Outdoor"
-    output["Scene Category"] =[{"Description":"Probability"}]
-    scene = {}
+    #output["Scene Category"] =[{"Description":"Probability"}]
+    scene = []
     for i in range(5):
-        scene[classes[idx[i]]] = str(round(probs[i],3))
+        x={}
+        x['Description'] = classes[idx[i]]
+        x['Confidence'] = str(round(probs[i],3))
+        scene.append(x)
+        #scene[classes[idx[i]]] = str(round(probs[i],3))
       
-    output["Scene Category"].append(scene)
+    output["Scene Category"] = scene
     #print(output)  
     return output
 

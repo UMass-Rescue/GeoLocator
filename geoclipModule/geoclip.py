@@ -18,7 +18,7 @@ def detect_location_from_image(model,img_path,jsonfile):
 
     geoLoc = Nominatim(user_agent="GetLoc")
     
-    finallist = [{"Country, State" : "Confidence"}]
+    finallist = []
      
     # Display the top 5 GPS predictions
     #print("Top 10 GPS Predictions 📍")
@@ -35,13 +35,16 @@ def detect_location_from_image(model,img_path,jsonfile):
     #print(len(save_predictions),save_predictions)
     sorted_predictions = sorted(save_predictions.items(), key=lambda x:x[1],reverse=True)
     #print(sorted_predictions)
-    x = {}
     for prediction in sorted_predictions:
-        x[prediction[0]]=str(np.round(prediction[1].numpy(),3))
+        x={}
+        #x[prediction[0]]=str(np.round(prediction[1].numpy(),3))
+        x["Country"] = prediction[0].split(',')[0].strip()
+        x["State"] = prediction[0].split(',')[1].strip()
+        x["Confidence"] = str(np.round(prediction[1].numpy(),3))
     
     #print(finallist)
-    finallist.append(x)
-    #print(finallist)
+        finallist.append(x)
+    print(finallist)
     jsonfile['GeoClip Predictions'] = finallist
     #print(jsonfile)
     return jsonfile

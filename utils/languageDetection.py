@@ -28,18 +28,18 @@ texts = [f"{Language.get(lang_code).display_name()} text" for lang_code in langu
 
 
 # Initialize the translator
-translator = Translator()
+#translator = Translator()
 
 # Function to translate a list of texts to English
-def translate_to_english(texts, source_lang='auto'):
-    translated_texts = []
-    #print(texts)
-    for text in texts:
-        # Translate the text to English
-        translated = translator.translate(text, src=source_lang, dest='en')
-        #print(translated)
-        translated_texts.append(translated.text)
-    return translated_texts
+# def translate_to_english(texts, source_lang='auto'):
+#     translated_texts = []
+#     #print(texts)
+#     for text in texts:
+#         # Translate the text to English
+#         translated = translator.translate(text, src=source_lang, dest='en')
+#         #print(translated)
+#         translated_texts.append(translated.text)
+#     return translated_texts
 
 
 
