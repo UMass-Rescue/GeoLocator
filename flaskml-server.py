@@ -25,6 +25,7 @@ from IndoorOutdoorClassifier.iodetector import run_iodetector
 from TextSpotter.Craft.textspot import run_craft
 from utils.textExtraction import get_location_from_text
 from utils.languageDetection import get_lang_code
+from utils.countryMappingFromLanguage import getcountry,get_country_name
 # Initialize Flask-ML server
 server = MLServer(__name__)
 
@@ -140,6 +141,7 @@ def process_images(inputs: ImageInputs, parameters: ImageParameters) -> Response
             continue  # Skip to next image if there's an error
         if len(os.listdir(temp_folder))>2:
             language_detected = set()
+            countries_detected = set()
             languages, locations = [], []  # Initialize lists for languages and locations detected from text
             for processed_img in os.listdir(temp_folder):
                 if processed_img.endswith((".jpg", ".png")):
@@ -148,8 +150,13 @@ def process_images(inputs: ImageInputs, parameters: ImageParameters) -> Response
                     # Detect language and location from the text in the processed image
                     language = get_lang_code(processed_path)
                     if language:
-                         
+                        #print(language)
                         language_detected.add(language.split(" ")[0])
+                        country = getcountry(language.split(" ")[0])
+                        #print(country)
+                        for c in country:
+                             #print(c)
+                             countries_detected.add(get_country_name(c['country']))
                     
         
                     language, location = get_location_from_text(processed_path)
@@ -169,6 +176,8 @@ def process_images(inputs: ImageInputs, parameters: ImageParameters) -> Response
             geo_result["Languages Detected"] = list(set(languages))
             geo_result["Locations Detected from Text"] = list(set(locations))
             geo_result["Languages Detected Method 2"] = list(language_detected)
+            geo_result["Countries Possible from Languages Spotted"] = list(countries_detected)
+
             results.append(geo_result)
 
         # Clean up the temporary folder after processing
