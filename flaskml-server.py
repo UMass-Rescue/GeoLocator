@@ -26,7 +26,7 @@ from TextSpotter.Craft.textspot import run_craft
 from utils.textExtraction import get_location_from_text
 from utils.languageDetection import get_lang_code
 from utils.countryMappingFromLanguage import getcountry,get_country_name
-from utils.translator import auto_translate
+from utils.translator import translate
 
 
 # Initialize Flask-ML server
@@ -188,7 +188,7 @@ def process_images(inputs: ImageInputs, parameters: ImageParameters) -> Response
                         print("No Text Spotted in the image")
                         results.append(geo_result)
 
-    result = auto_translate(results)
+    results = translate(results)
 
     # Define the output JSON file path from inputs and write results to it
     try:
