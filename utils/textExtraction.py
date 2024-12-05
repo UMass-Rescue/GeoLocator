@@ -1,132 +1,87 @@
 # Import necessary libraries
 import os
-import pandas as pd
 import re
-from tqdm import tqdm
-from PIL import Image
 import easyocr
 import spacy
 from langdetect import detect
 from spacy.matcher import PhraseMatcher
 
-# List of image paths
-# image_paths = [
-#     'testImages/fffb31ec87802a5a.jpg'
-#     'testImages/ffbaa76bd8d172cf.jpg',
-#     'testImages/ffda1919cf90a8eb.jpg',
-#     'testImages/ffdf2c012fcee84d.jpg',
-#     'testImages/ffe3f4c718e9ad0d.jpg'
-# ]
-
-# Initialize EasyOCR reader with multilingual support (modify languages as needed)
-
-
-# Define functions for text cleaning, language detection, and NER post-processing
+# Function to clean text
 def clean_text(text):
     """Remove special characters, short words, and extra spaces."""
-    clean_text = re.sub(r'[^\w\s]', '', text)  # Remove special characters
-    clean_text = re.sub(r'\b\w{1,2}\b', '', clean_text)  # Remove short words
-    clean_text = re.sub(r'\n', ' ', clean_text)  # Replace line breaks with space
-    clean_text = re.sub(r'\s+', ' ', clean_text).strip()  # Remove extra spaces
-    return clean_text
+    text = re.sub(r'[^\w\s]', '', text)  # Remove special characters
+    text = re.sub(r'\b\w{1,2}\b', '', text)  # Remove short words
+    text = re.sub(r'\n', ' ', text)  # Replace line breaks with spaces
+    text = re.sub(r'\s+', ' ', text).strip()  # Remove extra spaces
+    return text
 
+# Function to post-process NER results
 def post_process_ner(entities):
     """Remove trailing characters and filter out empty strings."""
     processed = [re.sub(r'\bi\b$', '', ent).strip() for ent in entities]
-    return list(filter(lambda x: x, processed))
+    return list(filter(None, processed))
 
-# Initialize PhraseMatcher for known locations
+# Initialize PhraseMatcher with known locations
 def initialize_phrase_matcher(nlp):
+    """Initialize a PhraseMatcher with predefined location patterns."""
     matcher = PhraseMatcher(nlp.vocab, attr="LOWER")
     known_locations = [
         "San Jose", "California", "New York", "Tokyo", "Seoul", "Paris",
-        "London", "Rome", "Munich", "Beijing", "Shanghai",
-        "دبي", "القاهرة", "Riyadh", "서울", "東京", "मुंबई",
-        "প্যারিস", "فلورنسا"
+        "London", "Rome", "Munich", "Beijing", "Shanghai", "دبي", "القاهرة",
+        "Riyadh", "서울", "東京", "मुंबई", "প্যারিস", "فلورنسا"
     ]
-    patterns = [nlp.make_doc(loc) for loc in known_locations]
+    patterns = [nlp.make_doc(location) for location in known_locations]
     matcher.add("LocationMatcher", patterns)
     return matcher
 
+# Function to extract text and detect locations from an image
 def get_location_from_text(image):
-    #print(f"\nProcessing image")
-    reader = easyocr.Reader(['en'], gpu=True)
-    # Step 1: Extract Text from the Image with EasyOCR
+    """Process an image to extract text, detect language, and find locations."""
+    reader = easyocr.Reader(['en'], gpu=True)  # Enable GPU for faster processing
+
+    # Step 1: Extract text using EasyOCR
     result = reader.readtext(image)
-    ocr_data = []
-    for (bbox, text, conf) in result:
-        #print(f"Detected Text: '{text}' with confidence {conf:.2f}")
-        ocr_data.append(text)
+    extracted_text = ' '.join([text for (_, text, _) in result])
 
-    # Concatenate all detected text for further processing
-    full_text = ' '.join(ocr_data)
-    #print("\nFull Extracted Text:")
-    #print(full_text)
-
-    # Step 2: Detect Language of Extracted Text
-    #print("\nDetecting language of the extracted text...")
+    # Step 2: Detect language
     try:
-        detected_lang = detect(full_text)
-        #print(f"Detected Language: {detected_lang}")
-    except Exception as e:
-        #print(f"Language detection failed: {e}")
-        detected_lang = 'en'
+        detected_lang = detect(extracted_text)
+    except Exception:
+        detected_lang = 'en'  # Default to English if detection fails
 
-    # Step 3: Load spaCy NER Model Based on Language Detection
-    if detected_lang == 'en':
-        try:
-            nlp = spacy.load('en_core_web_trf')
-        except OSError:
-            #print("Downloading 'en_core_web_trf' model...")
-            os.system('python -m spacy download en_core_web_trf')
-            nlp = spacy.load('en_core_web_trf')
-    else:
-        try:
-            nlp = spacy.load('xx_ent_wiki_sm')
-        except OSError:
-            #print("Downloading 'xx_ent_wiki_sm' model...")
-            os.system('python -m spacy download xx_ent_wiki_sm')
-            nlp = spacy.load('xx_ent_wiki_sm')
+    # Step 3: Load appropriate spaCy model based on language
+    model_name = 'en_core_web_trf' if detected_lang == 'en' else 'xx_ent_wiki_sm'
+    try:
+        nlp = spacy.load(model_name)
+    except OSError:
+        os.system(f'python -m spacy download {model_name}')
+        nlp = spacy.load(model_name)
 
-    # Initialize the PhraseMatcher with known locations
+    # Initialize PhraseMatcher
     matcher = initialize_phrase_matcher(nlp)
 
-    # Step 4: Clean the OCR Text
-    cleaned_text = clean_text(full_text)
-    #print("\nCleaned Text:")
-    #print(cleaned_text)
+    # Step 4: Clean extracted text
+    cleaned_text = clean_text(extracted_text)
 
-    # Step 5: Perform Named Entity Recognition (NER) to Find Locations
+    # Step 5: Perform Named Entity Recognition (NER) to find geopolitical entities
     doc = nlp(cleaned_text)
-    locations = [ent.text for ent in doc.ents if ent.label_ == 'GPE']  # GPE = Geopolitical Entity
+    locations = [ent.text for ent in doc.ents if ent.label_ == 'GPE']
     locations = post_process_ner(locations)
-    #print("\nRecognized Locations (NER):", locations)
 
-    # Step 6: Use PhraseMatcher to Find Known Locations
+    # Step 6: Use PhraseMatcher to find known locations
     def apply_phrase_matcher(text):
         doc = nlp(text)
         matches = matcher(doc)
-        matched_locs = [doc[start:end].text for _, start, end in matches]
-        return matched_locs
+        return [doc[start:end].text for _, start, end in matches]
 
     matched_locations = apply_phrase_matcher(cleaned_text)
-    #print("\nMatched Locations (PhraseMatcher):", matched_locations)
 
     # Combine NER and PhraseMatcher results
     all_locations = set(locations + matched_locations)
-    #print("\nCombined Recognized Locations (NER + PhraseMatcher):", list(all_locations))
 
-    # Step 7: Regex Fallback for Additional Matching
-    def regex_fallback(text):
-        """Fallback method using regex to match known patterns of locations."""
-        pattern = r'\b(San Jose|California|New York|Tokyo|Seoul|Paris|London|Rome|Munich|Beijing|Shanghai|دبي|القاهرة|Riyadh|서울|東京|मुंबई|প্যারিস|فلورنسا)\b'
-        return re.findall(pattern, text, re.IGNORECASE)
-
-    # Use regex fallback if no locations are found
+    # Step 7: Fallback regex matching for additional location detection
     if not all_locations:
-        #print("\nFallback: Using regex matching.")
-        all_locations = regex_fallback(cleaned_text)
+        pattern = r'\b(San Jose|California|New York|Tokyo|Seoul|Paris|London|Rome|Munich|Beijing|Shanghai|دبي|القاهرة|Riyadh|서울|東京|मुंबई|প্যারিস|فلورنسا)\b'
+        all_locations = re.findall(pattern, cleaned_text, re.IGNORECASE)
 
-    #print("\nFinal Recognized Locations:", list(all_locations))
-    return detected_lang,all_locations
-
+    return detected_lang, list(all_locations)
