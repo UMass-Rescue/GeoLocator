@@ -176,7 +176,7 @@ def process_images(inputs: ImageInputs, parameters: ImageParameters) -> Response
             language_detected.add("English")
 
             # Merge textspot results into the geo_result
-            geo_result["Languages Detected"] = list(set(languages))
+            #geo_result["Languages Detected"] = list(set(languages))
             geo_result["Locations Detected from Text"] = list(set(locations))
             geo_result["Languages Detected Method 2"] = list(language_detected)
             geo_result["Countries Possible from Languages Spotted"] = list(countries_detected)

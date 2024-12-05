@@ -1,0 +1,73 @@
+[
+    {
+        "Image": "Evaluation/Images\\IMG-04.jpg",
+        "Environment Type": "Outdoor",
+        "Scene Category": [
+            {
+                "Description": "ice_shelf",
+                "Confidence": "0.222"
+            },
+            {
+                "Description": "hangar/outdoor",
+                "Confidence": "0.055"
+            },
+            {
+                "Description": "highway",
+                "Confidence": "0.045"
+            },
+            {
+                "Description": "desert_road",
+                "Confidence": "0.04"
+            },
+            {
+                "Description": "runway",
+                "Confidence": "0.037"
+            }
+        ],
+        "Locations Detected from Text": [],
+        "Languages Detected Method 2": [
+            "English",
+            "Arabic"
+        ],
+        "Countries Possible from Languages Spotted": [
+            "Jordan",
+            "Morocco",
+            "Lebanon",
+            "Bahrain",
+            "Qatar",
+            "Egypt",
+            "Mauritania",
+            "Kuwait",
+            "Mali",
+            "Kenya",
+            "Nigeria",
+            "Comoros",
+            "Saudi Arabia",
+            "Syrian Arab Republic",
+            "Iran, Islamic Republic of",
+            "Iraq",
+            "Tajikistan",
+            "Algeria",
+            "Yemen",
+            "Tunisia",
+            "United Kingdom",
+            "Chad",
+            "Cyprus",
+            "Somalia",
+            "Israel",
+            "Libya",
+            "Eritrea",
+            "Oman",
+            "Djibouti",
+            "Western Sahara",
+            "T\u00fcrkiye",
+            "Canada",
+            "Cameroon",
+            "United Arab Emirates",
+            "Palestine, State of",
+            "South Sudan",
+            "Niger",
+            "Sudan"
+        ]
+    }
+]
