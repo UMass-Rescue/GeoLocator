@@ -55,11 +55,28 @@ The output is a JSON file containing:
 - Detected Languages: Languages found in the extracted text.
 - Indoor/Outdoor Classification: Information about the environment in which the image was captured.
 
-## Evaluate the model
-To evaluate we have created dataset of 20 Images found inside Evaluation directory under folder Images with labels in the file Labels.csv
+### **Model Evaluation**
+
+To evaluate the model, we have created a dataset of 20 images located in the `Evaluation/Images` folder, with corresponding labels provided in the file `Labels.csv` inside the `Evaluation` directory.
+
 ```bash
 python evaluate.py
 ```
+
+#### **Evaluation Output**
+
+The total execution time for the evaluation was approximately **1920.67 seconds** (32 minutes) for processing 20 images.
+
+- **Average time per image**: **1.6 minutes**.
+
+This includes:
+- Loading models and datasets.
+- Performing predictions for all images.
+- Calculating accuracy metrics.
+
+![Model Evaluation Results](assets/model_evaluation_time.png)
+
+
 
 ## Individual Phases Explanation
 
