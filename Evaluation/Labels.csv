@@ -1,6 +1,6 @@
 Image File,Indoor/ Outdoor,Type of Scene,Language,Country,State
 IMG-01.jpg,Outdoor,temple/asia,"Kannada, English",India,Karnataka
-IMG-02.jpg,Outdoor,train_station/platform,"Gujarati, English",India,Gujarat
+IMG-02.jpg,Outdoor,train_station/platform,"Gujarati, English, Hindi, Arabian",India,Gujarat
 IMG-03.jpg,Outdoor,coffee_shop,English,United States,Massachusetts
 IMG-04.jpg,Outdoor,street,English,United Arab Emirates,Dubai
 IMG-05.jpg,Indoor,living_room,,India,
@@ -16,6 +16,6 @@ IMG-14.jpg,Outdoor,Forest,,South Africa,
 IMG-15.jpg,Indoor,booth/indoor,Swedish,Sweden,
 IMG-16.jpg,Outdoor,forest,Japanese,Japan,
 IMG-17.jpg,Indoor,chamber,,Australia,
-IMG-18.jpg,Indoor,church/indoor,,Nepal,
+IMG-18.jpg,Indoor,temple/asia,,Nepal,
 IMG-19.jpg,Indoor,dorm_room,,Japan,
 IMG-20.jpeg,Indoor,booth/indoor,English,United States,Alaska

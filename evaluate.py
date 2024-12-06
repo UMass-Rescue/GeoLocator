@@ -158,7 +158,7 @@ def start(directory, gt,outputJson):
 
         # Define the output JSON file path from inputs and write results to it
     try:
-            append_to_json(output_path, results[0])
+            append_to_json(output_path, results)
             print("Results written to:", output_path)
     except Exception as e:
             print(f"Failed to write results: {e}")
