@@ -55,7 +55,7 @@ The output is a JSON file containing:
 - Detected Languages: Languages found in the extracted text.
 - Indoor/Outdoor Classification: Information about the environment in which the image was captured.
 
-### Evaluate the model
+## Evaluate the model
 To evaluate we have created dataset of 20 Images found inside Evaluation directory under folder Images with labels in the file Labels.csv
 ```bash
 python evaluate.py
