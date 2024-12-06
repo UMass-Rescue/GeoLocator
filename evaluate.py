@@ -1,6 +1,7 @@
 import argparse
 import json
 import os
+import time
 import warnings
 
 import torch
@@ -162,10 +163,12 @@ def start(directory, gt, outputJson):
 def main():
     print(torch.cuda.is_available())
     image_folder = "Evaluation/Images"
-    GroundTrush = "Evaluation/Labels.csv"
+    GroundTruth = "Evaluation/Labels.csv"
     output_csv = "Evaluation/op.csv"
-    start(image_folder, GroundTrush, output_csv)
+    start(image_folder, GroundTruth, output_csv)
 
 
 if __name__ == "__main__":
+    start_time = time.time()
     main()
+    print("--- %s seconds ---" % (time.time() - start_time))
