@@ -97,13 +97,12 @@ def top1(results, gt_file):
         geoclip_country_Accuracy,
         geoclip_country_Accuracy_top5,
     )
+    
     print("IO Accuracy:", get_accuracy(io_accuracy))
     print("Scene Accuracy:", get_accuracy(scenetype_Accuracy))
     print("Scene Top 5 Accuracy:", get_accuracy(scenetype_Accuracy_top5))
     print("Text Spotter Accuracy", get_accuracy(textspotter_accuracy))
     print("Language Accuracy", get_accuracy(Language_Accuracy))
-    print(
-        "Location from Language Accuracy", get_accuracy(Location_from_Language_Accuracy)
-    )
+    print("Location from Language Accuracy", get_accuracy(Location_from_Language_Accuracy))
     print("GeoClip Accuracy", get_accuracy(geoclip_country_Accuracy))
     print("GeoClip TOP 5 Accuracy", get_accuracy(geoclip_country_Accuracy_top5))
