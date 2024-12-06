@@ -4,30 +4,34 @@ import os
 import shutil
 import warnings
 from typing import List, TypedDict
-import warnings
+
 from geoclip import GeoCLIP
 
+# Suppress warnings
 warnings.filterwarnings("ignore")
-
 
 # Import Flask-ML and other components for creating an ML server
 from flask_ml.flask_ml_server import MLServer, load_file_as_string
-from flask_ml.flask_ml_server.models import (BatchFileInput, BatchTextResponse,
-                                             FileInput, FileResponse, FileType,
-                                             InputSchema, InputType,
-                                             NewFileInputType, ParameterSchema,
-                                             ResponseBody, TaskSchema,
-                                             TextParameterDescriptor)
+from flask_ml.flask_ml_server.models import (
+    BatchFileInput,
+    FileInput,
+    FileResponse,
+    FileType,
+    InputSchema,
+    InputType,
+    NewFileInputType,
+    ResponseBody,
+    TaskSchema,
+)
 
 # Import functions from project modules
 from geoclipModule.geoclip import detect_location_from_image
 from IndoorOutdoorClassifier.iodetector import run_iodetector
 from TextSpotter.Craft.textspot import run_craft
-from utils.textExtraction import get_location_from_text
+from utils.countryMappingFromLanguage import get_country_name, getcountry
 from utils.languageDetection import get_lang_code
-from utils.countryMappingFromLanguage import getcountry,get_country_name
+from utils.textExtraction import get_location_from_text
 from utils.translator import translate
-
 
 # Initialize Flask-ML server
 server = MLServer(__name__)
@@ -35,8 +39,8 @@ server = MLServer(__name__)
 # Add application metadata
 server.add_app_metadata(
     name="GeoLocator",
-    author="Islam",
-    version="0.3.4",
+    author="Islam & Barkur",
+    version="0.3.8",
     info=load_file_as_string("./README.md"),
 )
 
@@ -68,7 +72,8 @@ class ImageInputs(TypedDict):
     output_path: FileInput
 
 
-class ImageParameters(TypedDict): ...
+class ImageParameters(TypedDict):
+    pass
 
 
 # Function to append data to an existing JSON file, or create it if it doesn't exist
@@ -79,7 +84,6 @@ def append_to_json(file_path, data):
                 existing_data = json.load(file)
             except json.JSONDecodeError:
                 existing_data = []
-            # Append new data to existing data if it's a list
             if isinstance(existing_data, list):
                 existing_data.append(data)
             else:
@@ -88,7 +92,7 @@ def append_to_json(file_path, data):
             json.dump(existing_data, file, indent=4)
     else:
         with open(file_path, "w") as file:
-            json.dump([data], file, indent=4,ensure_ascii=False)
+            json.dump([data], file, indent=4, ensure_ascii=False)
 
 
 # Define route for processing images
@@ -97,32 +101,30 @@ def append_to_json(file_path, data):
 )
 def process_images(inputs: ImageInputs, parameters: ImageParameters) -> ResponseBody:
     results = []  # Store results for each processed image
-    temp_folder = "temp/"  # Temporary folder to store processed images
+    temp_folder = "temp/"
     model = GeoCLIP()
     output_path = inputs["output_path"].path
-    os.remove(output_path) if os.path.exists(output_path) else None
 
+    # Ensure output path is clean
+    if os.path.exists(output_path):
+        os.remove(output_path)
 
-    # Process each image uploaded by the user
     for img_file in inputs["image_input"].files:
         shutil.rmtree(temp_folder, ignore_errors=True)
-        os.makedirs(temp_folder, exist_ok=True)  # Create temp folder if it doesn't exist
+        os.makedirs(temp_folder, exist_ok=True)
 
-        print("Processing image:", img_file.path)
+        print(f"Processing image: {img_file.path}")
 
         # Run Indoor/Outdoor detector
-        print("Predicting Indoor Outdor and Scene Type")
+        print("Predicting Indoor/Outdoor and Scene Type")
         io_result = run_iodetector(img_file.path)
-        print("IO Detection Result:", io_result)
+        print(f"IO Detection Result: {io_result}")
 
         # Run GeoClip model for location detection based on the image
         print("Running GEOCLIP")
-        geo_result = detect_location_from_image(model,img_file.path, io_result)
-        #geo_result = io_result
-        print("Geo Detection Result:", geo_result)
+        geo_result = detect_location_from_image(model, img_file.path, io_result)
+        print(f"Geo Detection Result: {geo_result}")
 
-        #language_detected = get_lang_code(img_file.path)
-        #print(language_detected)
         textspot_results = []  # Store OCR results for the current image
         try:
             # Run the CRAFT model for text detection on the image
@@ -130,74 +132,73 @@ def process_images(inputs: ImageInputs, parameters: ImageParameters) -> Response
                 image_path=img_file.path,
                 result_folder=temp_folder,
                 trained_model="TextSpotter/Craft/weights/craft_mlt_25k.pth",
-                text_threshold=0.7, # Lower threshold for quicker detection
-                low_text=0.3,       # Higher value to exclude faint text
-                link_threshold=0.4, # Higher value for faster linkage
-                cuda=False,         # Enable GPU acceleration for faster processing
-                canvas_size=1280,   # Reduce canvas size for faster processing
-                mag_ratio=1.5,      # Lower magnification for faster resizing
-                poly=False,         # Skip polygonal representation for simpler processing
-                refine=False,       # Keep refinement disabled
+                text_threshold=0.7,
+                low_text=0.3,
+                link_threshold=0.4,
+                cuda=False,
+                canvas_size=1280,
+                mag_ratio=1.5,
+                poly=False,
+                refine=False,
             )
         except Exception as e:
             print(f"Error running CRAFT on {img_file.path}: {e}")
-            continue  # Skip to next image if there's an error
-        if len(os.listdir(temp_folder))>2:
+            continue
+
+        if len(os.listdir(temp_folder)) > 2:
             language_detected = set()
             countries_detected = set()
-            languages, locations = [], []  # Initialize lists for languages and locations detected from text
+            languages, locations = [], []
+
             for processed_img in os.listdir(temp_folder):
                 if processed_img.endswith((".jpg", ".png")):
                     processed_path = os.path.join(temp_folder, processed_img)
-                    
+
                     # Detect language and location from the text in the processed image
                     language = get_lang_code(processed_path)
                     if language:
-                        #print(language)
                         language_detected.add(language.split(" ")[0])
                         country = getcountry(language.split(" ")[0])
-                        #print(country)
                         for c in country:
-                             #print(c)
-                             countries_detected.add(get_country_name(c['country']))
-                    
-        
+                            countries_detected.add(get_country_name(c["country"]))
+
                     language, location = get_location_from_text(processed_path)
                     languages.append(language)
                     locations.extend(location)
 
-
             # Append text detection results to the results list
-            #print("Rahasya Language Detected",language_detected)
-            textspot_results.append({
-                "Languages Detected": list(set(languages)),
-                "Locations Detected from Text": list(set(locations)),
-            })
+            textspot_results.append(
+                {
+                    "Languages Detected": list(set(languages)),
+                    "Locations Detected from Text": list(set(locations)),
+                }
+            )
+
             language_detected.add("English")
 
             # Merge textspot results into the geo_result
-            geo_result["Languages Detected"] = list(set(languages))
             geo_result["Locations Detected from Text"] = list(set(locations))
-            geo_result["Languages Detected Method 2"] = list(language_detected)
-            geo_result["Countries Possible from Languages Spotted"] = list(countries_detected)
+            geo_result["Languages Detected"] = list(language_detected)
+            geo_result["Countries Possible from Languages Spotted"] = list(
+                countries_detected
+            )
 
             results.append(geo_result)
 
-        # Clean up the temporary folder after processing
         else:
-                        print("No Text Spotted in the image")
-                        results.append(geo_result)
+            print("No Text Spotted in the image")
+            results.append(geo_result)
 
+    # Translate results if necessary
     results = translate(results)
 
-    # Define the output JSON file path from inputs and write results to it
+    # Write results to the output JSON file
     try:
         append_to_json(output_path, results)
-        print("Results written to:", output_path)
+        print(f"Results written to: {output_path}")
     except Exception as e:
         print(f"Failed to write results: {e}")
 
-    
     # Return the output JSON file to the user as a download
     return ResponseBody(
         root=FileResponse(
