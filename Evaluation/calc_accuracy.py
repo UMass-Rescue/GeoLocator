@@ -37,9 +37,7 @@ def top1(results, gt_file):
         gt_filter = gt[gt["Image File"] == image_filename]
         if len(gt_filter) == 1:
             gt_row = gt_filter.iloc[0]
-            io_accuracy.append(
-                gt_row["Indoor/ Outdoor"] == result["Environment Type"]
-            )
+            io_accuracy.append(gt_row["Indoor/ Outdoor"] == result["Environment Type"])
 
             # Scene category accuracy
             scenes = result["Scene Category"]
@@ -107,6 +105,8 @@ def top1(results, gt_file):
         geoclip_country_Accuracy_top5,
     )
 
+    # Add a blank line for better readability
+    print()
     print("IO Accuracy:", get_accuracy(io_accuracy))
     print("Scene Accuracy:", get_accuracy(scenetype_Accuracy))
     print("Scene Top 5 Accuracy:", get_accuracy(scenetype_Accuracy_top5))
