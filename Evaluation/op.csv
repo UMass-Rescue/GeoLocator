@@ -1,0 +1,50 @@
+[
+    [
+        {
+            "Image": "Evaluation/Images\\IMG-08.jpg",
+            "Environment Type": "Outdoor",
+            "Scene Category": [
+                {
+                    "Description": "motel",
+                    "Confidence": "0.38"
+                },
+                {
+                    "Description": "highway",
+                    "Confidence": "0.089"
+                },
+                {
+                    "Description": "desert_road",
+                    "Confidence": "0.043"
+                },
+                {
+                    "Description": "gas_station",
+                    "Confidence": "0.042"
+                },
+                {
+                    "Description": "desert/vegetation",
+                    "Confidence": "0.036"
+                }
+            ],
+            "GeoClip Predictions": [
+                {
+                    "Country": "United States",
+                    "State": "California",
+                    "Confidence": "0.224"
+                },
+                {
+                    "Country": "United States",
+                    "State": "Los Angeles County",
+                    "Confidence": "0.048"
+                }
+            ],
+            "Locations Detected from Text": [
+                "CaLiFORNIA",
+                "california"
+            ],
+            "Languages Detected Method 2": [
+                "English"
+            ],
+            "Countries Possible from Languages Spotted": []
+        }
+    ]
+]
