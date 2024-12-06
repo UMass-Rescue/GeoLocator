@@ -1,23 +1,23 @@
-from geoclip import GeoCLIP
-# Image Upload & Display
-from PIL import Image
-from io import BytesIO
-import matplotlib.pyplot as plt
 import os
+from collections import defaultdict
+from io import BytesIO
 from tkinter import filedialog
 
 # Heatmap
 import folium
-from folium.plugins import HeatMap
-from geopy.geocoders import Nominatim
-from collections import defaultdict
-
-
-
+import matplotlib.pyplot as plt
 import torch
+from folium.plugins import HeatMap
+from geoclip import GeoCLIP
+from geopy.geocoders import Nominatim
+
+# Image Upload & Display
+from PIL import Image
 
 if not torch.cuda.is_available():
-    raise RuntimeError("This notebook requires a GPU to run. Please ensure that you have selected GPU as the Hardware accelerator in the Runtime settings.")
+    raise RuntimeError(
+        "This notebook requires a GPU to run. Please ensure that you have selected GPU as the Hardware accelerator in the Runtime settings."
+    )
 else:
     print("CUDA is available. You're good to go!")
 
@@ -28,9 +28,9 @@ print("GeoCLIP has been loaded! 🎉")
 print("===========================")
 
 file_path = filedialog.askopenfilename(
-        title="Select Image",
-        filetypes=(("Image files", "*.jpg;*.png;*.jpeg;*.bmp;*.gif"), ("All files", "*.*"))
-    )
+    title="Select Image",
+    filetypes=(("Image files", "*.jpg;*.png;*.jpeg;*.bmp;*.gif"), ("All files", "*.*")),
+)
 print(file_path)
 
 print("===========================")
@@ -50,11 +50,11 @@ print("========================")
 save_predictions = defaultdict(int)
 for i in range(10):
     lat, lon = top_pred_gps[i]
-    print(f"Prediction {i+1}: ({lat:.6f}, {lon:.6f}) - Probability: {top_pred_prob[i]:.6f}")
+    print(
+        f"Prediction {i+1}: ({lat:.6f}, {lon:.6f}) - Probability: {top_pred_prob[i]:.6f}"
+    )
     locname = str(geoLoc.reverse((lat, lon)))
     print(locname)
     save_predictions[locname.split(",")[-1] + ", " + locname.split(",")[-3]] += 1
     print(locname.split(",")[-1] + ", " + locname.split(",")[-2])
 print(save_predictions)
-
-

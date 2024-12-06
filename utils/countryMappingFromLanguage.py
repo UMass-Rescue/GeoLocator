@@ -1,13 +1,8 @@
 import json
 from collections import defaultdict
 
-# Load the territory languages dictionary from a JSON file
-# with open('territory_languages.json', 'r') as f:
-#     territory_languages = json.load(f)
-
-# Now `territory_languages` contains the same data structure as before
-
 import pycountry
+
 
 # Function to get the ISO 639-1 code from a language name
 def get_language_code(language_name):
@@ -18,32 +13,37 @@ def get_language_code(language_name):
     except LookupError:
         return None
 
+
 def map_languages_to_countries(territory_languages):
     lang_to_countries = defaultdict(list)
-    
+
     # Map each language to the countries where it is spoken
     for country_code, languages in territory_languages.items():
         for lang_code, lang_info in languages.items():
-            lang_to_countries[lang_code].append({
-                'country': country_code,
-                'percent': lang_info['percent'],
-                'official': lang_info['official']
-            })
-    
+            lang_to_countries[lang_code].append(
+                {
+                    "country": country_code,
+                    "percent": lang_info["percent"],
+                    "official": lang_info["official"],
+                }
+            )
+
     return lang_to_countries
+
 
 def getcountry(language):
     # Load the saved territory languages data
-    with open('territory_languages.json', 'r') as f:
+    with open("territory_languages.json", "r") as f:
         territory_languages = json.load(f)
 
     # Create the language to countries mapping
     language_to_countries = map_languages_to_countries(territory_languages)
 
     code = get_language_code(language)
-    #print(code)
+    # print(code)
     countries = language_to_countries.get(code, [])
     return countries
+
 
 def get_country_name(country_code):
     try:
@@ -52,6 +52,3 @@ def get_country_name(country_code):
         return country.name if country else None
     except KeyError:
         return None
-    # Example: Get the countries where 'kn' (Kannada) is spoken
-    #kannada_countries = language_to_countries.get(code, [])
-    #print(f"Countries where Kannada is spoken: {kannada_countries}")
