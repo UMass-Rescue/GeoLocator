@@ -119,12 +119,6 @@ This project performs Optical Character Recognition (OCR) and Named Entity Recog
 - **pandas**: For data handling and analysis.
 - **Pillow**: For image processing.
 
-
-#### Download the required spaCy models:
-```bash
-python -m spacy download en_core_web_trf
-python -m spacy download xx_ent_wiki_sm
-```
 #### Usage
 Set Up Image Paths: Update the `image_paths` list in the script with the paths to your images.
 
