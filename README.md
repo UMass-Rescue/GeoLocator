@@ -29,11 +29,6 @@ venv\Scripts\activate  # For Windows
 ```bash
 pip install -r requirements.txt
 ```
-### CUDA Support
-If you have a GPU, enable CUDA in the CRAFT module for faster processing.
-```python
-cuda=True
-```
 
 ### Running the Server
 To start the Flask-ML server:
@@ -77,9 +72,6 @@ This includes:
 - Calculating accuracy metrics.
 
 
-
-
-
 ## Individual Phases Explanation
 
 ### Phase 1: Indoor Outdoor Classification
@@ -89,8 +81,7 @@ To test
     !cd IndoorOutdoorClassifier
     !python
     iodetector.test_iodetector()
-
-
+    
 
 ### Phase 2: GeoCLIP
 To initialise geoclip model
