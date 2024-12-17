@@ -135,7 +135,7 @@ def process_images(inputs: ImageInputs, parameters: ImageParameters) -> Response
                 text_threshold=0.7,
                 low_text=0.3,
                 link_threshold=0.4,
-                cuda=False,
+                cuda=torch.cuda.is_available(),
                 canvas_size=1280,
                 mag_ratio=1.5,
                 poly=False,
