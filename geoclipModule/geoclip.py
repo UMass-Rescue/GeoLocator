@@ -61,6 +61,6 @@ def detect_location_from_image(model, img_path, jsonfile):
 
         finallist.append(x)
 
-    print(finallist)
+    #print(finallist)
     jsonfile["GeoClip Predictions"] = finallist
     return jsonfile

@@ -212,11 +212,12 @@ def run_iodetector(img_file):
     # Output["Scene Category"] =[{"Description":"Probability"}]
     scene = []
     for i in range(5):
-        x = {}
-        x["Description"] = classes[idx[i]]
-        x["Confidence"] = str(round(probs[i], 3))
-        scene.append(x)
-        # Scene[classes[idx[i]]] = str(round(probs[i],3))
+        if round(probs[i], 3) > 0.01:
+            x = {}
+            x["Description"] = classes[idx[i]]
+            x["Confidence"] = str(round(probs[i], 3))
+            scene.append(x)
+            # Scene[classes[idx[i]]] = str(round(probs[i],3))
 
     output["Scene Category"] = scene
     return output

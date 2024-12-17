@@ -16,6 +16,7 @@ import shutil
 from geoclip import GeoCLIP
 
 from Evaluation import calc_accuracy
+from Evaluation import metrics
 
 # Import functions from project modules
 from geoclipModule.geoclip import detect_location_from_image
@@ -78,12 +79,12 @@ def start(directory, gt, outputJson):
         # Run Indoor/Outdoor detector
         print("Predicting Indoor Outdor and Scene Type")
         io_result = run_iodetector(img_file)
-        print("IO Detection Result:", io_result)
+        #print("IO Detection Result:", io_result)
 
         # Run GeoClip model for location detection based on the image
         print("Running GEOCLIP")
         geo_result = detect_location_from_image(model, img_file, io_result)
-        print("Geo Detection Result:", geo_result)
+        #print("Geo Detection Result:", geo_result)
         textspot_results = []  # Store OCR results for the current image
         try:
             # Run the CRAFT model for text detection on the image
@@ -122,9 +123,9 @@ def start(directory, gt, outputJson):
                         for c in country:
                             countries_detected.add(get_country_name(c["country"]))
 
-                    language, location = get_location_from_text(processed_path)
-                    languages.append(language)
-                    locations.extend(location)
+                    #language, location = get_location_from_text(processed_path)
+                    #languages.append(language)
+                    #locations.extend(location)
 
             # Append text detection results to the results list
             textspot_results.append(
@@ -150,7 +151,8 @@ def start(directory, gt, outputJson):
             results.append(geo_result)
 
     results = translate(results)
-    calc_accuracy.top1(results, gt)
+    metrics.calculate(results,gt)
+    #calc_accuracy.top1(results, gt)
 
     # Define the output JSON file path from inputs and write results to it
     try:
