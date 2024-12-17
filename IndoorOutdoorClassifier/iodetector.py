@@ -1,7 +1,3 @@
-# PlacesCNN to predict the scene category, attribute, and class activation map in a single pass
-# by Bolei Zhou, sep 2, 2017
-# Updated, making it compatible to pytorch 1.x in a hacky way
-
 import os
 
 import cv2
@@ -212,11 +208,12 @@ def run_iodetector(img_file):
     # Output["Scene Category"] =[{"Description":"Probability"}]
     scene = []
     for i in range(5):
-        x = {}
-        x["Description"] = classes[idx[i]]
-        x["Confidence"] = str(round(probs[i], 3))
-        scene.append(x)
-        # Scene[classes[idx[i]]] = str(round(probs[i],3))
+        if round(probs[i], 3) > 0.01:
+            x = {}
+            x["Description"] = classes[idx[i]]
+            x["Confidence"] = str(round(probs[i], 3))
+            scene.append(x)
+            # Scene[classes[idx[i]]] = str(round(probs[i],3))
 
     output["Scene Category"] = scene
     return output
