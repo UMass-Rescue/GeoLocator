@@ -95,7 +95,7 @@ def start(directory, gt, outputJson):
                 text_threshold=0.7,  # Lower threshold for quicker detection
                 low_text=0.3,  # Higher value to exclude faint text
                 link_threshold=0.4,  # Higher value for faster linkage
-                cuda=False,  # Enable GPU acceleration for faster processing
+                cuda=torch.cuda.is_available(),  # Enable GPU acceleration for faster processing
                 canvas_size=1280,  # Reduce canvas size for faster processing
                 mag_ratio=1.5,  # Lower magnification for faster resizing
                 poly=False,  # Skip polygonal representation for simpler processing
