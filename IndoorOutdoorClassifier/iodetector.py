@@ -1,7 +1,3 @@
-# PlacesCNN to predict the scene category, attribute, and class activation map in a single pass
-# by Bolei Zhou, sep 2, 2017
-# Updated, making it compatible to pytorch 1.x in a hacky way
-
 import os
 
 import cv2

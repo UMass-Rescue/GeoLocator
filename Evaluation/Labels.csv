@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 Image File,Indoor/ Outdoor,Type of Scene,Language,Country,State
 IMG-01.jpg,Outdoor,"temple/asia, pagoda","Kannada, English",India,Karnataka
 IMG-02.jpg,Outdoor,"train_station/platform, railroad_track, subway_station/platform","Gujarati, English, Hindi, Arabic",India,Gujarat
@@ -58,4 +59,66 @@ IMG-56.jpg,Outdoor,stage/outdoor,English,Uruguay,
 IMG-57.jpg,Indoor,"auto_showroom, auto_factory, exhibition_hall, raceway",English,Germany,
 IMG-58.jpg,Indoor,"auditorium, stage/indoor, music_studio",English,Taiwan,
 IMG-59.jpg,Indoor,"restaurant, fastfood_restaurant, food_court",English,United States,
+=======
+Image File,Indoor/ Outdoor,Type of Scene,Language,Country,State
+IMG-01.jpg,Outdoor,"temple/asia, pagoda,","Kannada, English",India,Karnataka
+IMG-02.jpg,Outdoor,"train_station/platform, railroad_track, subway_station/platform","Gujarati, English, Hindi, Arabic",India,Gujarat
+IMG-03.jpg,Outdoor,"coffee_shop, shopfront, urban_downtown",English,United States,Massachusetts
+IMG-04.jpg,Outdoor,"street, highway",English,United Arab Emirates,Dubai
+IMG-05.jpg,Indoor,"living_room, television_room, waiting_room",,India,
+IMG-06.jpg,Outdoor,"building_facade, street, downtown",English,Australia,Victoria
+IMG-07.jpg,Outdoor,"campus, building_facade, parking_garage/outdoor",English,Germany,
+IMG-08.jpg,Outdoor,"highway, desert/vegetation, field/wild, desert_road",English,United States,California
+IMG-09.jpg,Outdoor,"bus_station/indoor, street, road",English,United Kingdom,Plymouth
+IMG-10.jpg,Outdoor,"crosswalk, street, downtown, plaza",,United States,California
+IMG-11.jpg,Outdoor,"downtown, street, hotel/outdoor",English,United States,Texas
+IMG-12.jpeg,Outdoor,"market/outdoor, downtown, street, hotel/outdoor, hotel/outdoor, bazaar/outdoor, fastfood_restaurant","English, Malay, Chinese",Malaysia,Kuala Lumpur
+IMG-13.jpg,Oudoor,building_facade,"English, Tamil, Chinese, Japanese",Singapore,Singapore
+IMG-14.jpg,Outdoor,"valley, mountain_path, mountain, waterfall, rainforest",,South Africa,
+IMG-15.jpg,Indoor,"booth/indoor, fastfood_restaurant",Swedish,Sweden,
+IMG-16.jpg,Outdoor,"forest_path, forest/broadleaf, rainforest, forest_road",Japanese,Japan,
+IMG-17.jpg,Indoor,"church/indoor, burial_chamber",,Australia,
+IMG-18.jpg,Indoor,"temple/asia, pagoda",,Nepal,
+IMG-19.jpg,Indoor,"art_studio, classroom, art_school",,Japan,
+IMG-20.jpeg,Indoor,booth/indoor,English,United States,Alaska
+IMG-21.jpg,Outdoor,"balcony/interior, orchard",,Romania,
+IMG-22.jpg,Outdoor,"doorway/outdoor, barndoor ",Italian,Italy,
+IMG-23.jpg,Outdoor,"street, building_facade, bus_station/indoor ",Russian,Ukraine,
+IMG-24.jpg,Outdoor,"street, road, parking_lot","Arabic, English",Tunisia,
+IMG-25.jpg,Outdoor,"temple/asia, cultural_landmark, outdoor_pedestrian",Japanese,Japan,
+IMG-26.jpg,Outdoor,"apartment_building/outdoor, hangar/outdoor",,Spain,
+IMG-27.jpg,Outdoor,"ice_skating_rink/outdoor, ice_floe",,Bangladesh,
+IMG-28.jpg,Outdoor,"downtown, street, shopping_district",Japanese,Japan,
+IMG-29.jpg,Outdoor,"alley, market/outdoor, street, bazaar/outdoor",Chinese,Taiwan,
+IMG-30.jpg,Indoor,"bedroom, waiting_room, attic",,Unites States,
+IMG-31.jpg,Indoor,mosque/outdoor,"English, Tamil, Arabian",Singapore,
+IMG-32.jpg,Indoor ,"attic, alcove, bookstore",English,United States,
+IMG-33.jpg,Outdoor,"downtown, street",English,United States,
+IMG-34.jpg,Outdoor,"pond, lake/natural",,Georgia,
+IMG-35.jpg,Outdoor,"crosswalk, street",Chinese,China,
+IMG-36.jpg,Outdoor,"bus_station/indoor, street",English,United States,
+IMG-37.jpg,Indoor,"childs_room, playroom ",,United States,
+IMG-38.jpg,Outdoor,"fastfood_restaurant, booth/indoor",English,Ireland,
+IMG-39.jpg,Indoor,"subway_station/platform, booth/indoor",English,United Kingdom,
+IMG-40.jpg,Indoor,"beer_hall, restaurant, bar, coffee_shop","Japanese, English",Japan,
+IMG-41.jpg,Outdoor,"temple/asia, pagoda",English,Malaysia,
+IMG-42.jpg,Outdoor,"kasbah, museum/outdoor, synagogue/outdoor",,Lebanon,
+IMG-43.jpg,Indoor,"shopping_mall/indoor, bazaar/indoor, market/indoor","Japanese, English",Japan,
+IMG-44.jpg,Outdoor,"playground, park",,Latvia,
+IMG-45.jpg,Indoor,"shopping_mall/indoor, bazaar/indoor, market/indoor, flea_market/indoor",,Turkey,
+IMG-46.jpg,Outdoor,"temple/asia, pagoda",Chinese,China,
+IMG-47.jpg,Outdoor,"shopfront, market/outdoor, bazaar/outdoor, plaza","English, Chinese",China,
+IMG-48.jpg,Outdoor,"field/wild, hayfield, pasture, forest/broadleaf",,Zimbabwe,
+IMG-49.jpg,Outdoor,swimming_pool/outdoor,Spanish,Mexico,
+IMG-50.jpg,Outdoor,"pagoda, catacomb",,Myanmar ,
+IMG-51.jpg,Indoor,"living_room, hotel_room, waiting_room, dorm_room",,Turkey,
+IMG-52.jpg,Outdoor,"arena/performance, pavilion, stage/outdoor",,Wales,
+IMG-53.jpg,Outdoor,"fountain, plaza, museum/outdoor",,United Kingdom,
+IMG-54.jpg,Outdoor,"alley, courtyard",,Italy,
+IMG-55.jpg,Indoor,"conference_center, conference_room, auditorium, movie_theater/indoor",English,Ireland,
+IMG-56.jpg,Outdoor,stage/outdoor,English,Uruguay,
+IMG-57.jpg,Indoor,"auto_showroom, auto_factory, exhibition_hall, raceway",English,Germany,
+IMG-58.jpg,Indoor,"auditorium, stage/indoor, music_studio",English,Taiwan,
+IMG-59.jpg,Indoor,"restaurant, fastfood_restaurant, food_court",English,United States,
+>>>>>>> e9aaf021ae5ef6adb9b7d571156632985fca8980
 IMG-60.jpg,Outdoor,"raceway, field/wild",English,Russia,

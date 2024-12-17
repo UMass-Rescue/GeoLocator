@@ -47,16 +47,6 @@ def calculate_metrics(y_true, y_pred):
         "Accuracy": accuracy
     }
 
-    # # Calculate accuracy
-    # accuracy = true_positive / max_length if max_length > 0 else 0
-
-    # return {
-    #     "Precision": precision,
-    #     "Recall": recall,
-    #     "F1-Score": f1,
-    #     "Accuracy": accuracy
-    # }
-
 def append_to_Results(list,current):
     list["Precision"].append(current["Precision"])
     list["Recall"].append(current["Recall"])
@@ -165,58 +155,10 @@ def calculate(results, gt_file):
                 
                 else:
                     textspotter_accuracy.append(False)
-
-                # print(lg)
-                # print(textspotter_accuracy)
-                # print(result.get("Languages Detected Method 2", []))
-
                 LD_current = calculate_metrics(lg,lg_predicted)
                 LD = append_to_Results(LD,LD_current)
-                # print(LD , "LD")
 
-    
-
-
-    #                 if language in result["Languages Detected Method 2"]:
-    #                     Language_Accuracy.append(True)
-    #                 else:
-    #                     Language_Accuracy.append(False)
-    #             for language in result["Languages Detected Method 2"]:
-    #                 if language not in lg:
-    #                     Language_Accuracy.append(False)
-
-    #             if (
-    #                 gt_row["Country"]
-    #                 in result["Countries Possible from Languages Spotted"]
-    #             ):
-    #                 Location_from_Language_Accuracy.append(True)
-    #             else:
-    #                 Location_from_Language_Accuracy.append(False)
-    #     else:
-    #         print(f"No match or multiple matches found for: {image_filename}")
-    #         io_accuracy.append(False)
-
-    # print(
-    #     io_accuracy,
-    #     scenetype_Accuracy,
-    #     scenetype_Accuracy_top5,
-    #     textspotter_accuracy,
-    #     Language_Accuracy,
-    #     Location_from_Language_Accuracy,
-    #     geoclip_country_Accuracy,
-    #     geoclip_country_Accuracy_top5,
-    # )
-
-    # # Add a blank line for better readability
     print()
-
-    # print(io_accuracy)
-    # print(SC)
-    # print(LD)
-    # print(textspotter_accuracy)
-    # print(geoclip_country_Accuracy)
-    # print(geoclip_country_Accuracy_top5)
-    # print(Location_from_Language_Accuracy)
 
     # print("IO Accuracy:", io_accuracy)
     print("Indoor Outdoor Accuracy:", get_average(io_accuracy))
@@ -237,4 +179,3 @@ def calculate(results, gt_file):
     print("GeoClip Accuracy", get_average(geoclip_country_Accuracy))
     #print("GeoClip TOP 5 Accuracy", geoclip_country_Accuracy_top5)
     print("GeoClip TOP 5 Accuracy", get_average(geoclip_country_Accuracy_top5))
-

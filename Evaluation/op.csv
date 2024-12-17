@@ -1,7 +1,1555 @@
 [
     [
         {
-            "Image": "Evaluation/Images\\IMG-01.jpg",
+            "Image": "Evaluation/Images/IMG-43.jpg",
+            "Environment Type": "Indoor",
+            "Scene Category": [
+                {
+                    "Description": "arcade",
+                    "Confidence": "0.356"
+                },
+                {
+                    "Description": "bus_station/indoor",
+                    "Confidence": "0.185"
+                },
+                {
+                    "Description": "airport_terminal",
+                    "Confidence": "0.13"
+                },
+                {
+                    "Description": "bazaar/indoor",
+                    "Confidence": "0.061"
+                },
+                {
+                    "Description": "market/indoor",
+                    "Confidence": "0.041"
+                }
+            ],
+            "GeoClip Predictions": [
+                {
+                    "Country": "Japan",
+                    "State": "Kanagawa Prefecture",
+                    "Confidence": "tensor(0.0620)"
+                }
+            ],
+            "Locations Detected from Text": [],
+            "Languages Detected Method 2": [
+                "Japanese",
+                "English"
+            ],
+            "Countries Possible from Languages Spotted": [
+                "Canada",
+                "Japan",
+                "Brazil"
+            ]
+        },
+        {
+            "Image": "Evaluation/Images/IMG-57.jpg",
+            "Environment Type": "Indoor",
+            "Scene Category": [
+                {
+                    "Description": "department_store",
+                    "Confidence": "0.326"
+                },
+                {
+                    "Description": "beauty_salon",
+                    "Confidence": "0.069"
+                },
+                {
+                    "Description": "booth/indoor",
+                    "Confidence": "0.054"
+                },
+                {
+                    "Description": "raceway",
+                    "Confidence": "0.05"
+                },
+                {
+                    "Description": "clothing_store",
+                    "Confidence": "0.041"
+                }
+            ],
+            "GeoClip Predictions": [
+                {
+                    "Country": "Deutschland",
+                    "State": "Baden-W\u00fcrttemberg",
+                    "Confidence": "tensor(0.4080)"
+                }
+            ],
+            "Locations Detected from Text": [],
+            "Languages Detected Method 2": [
+                "English"
+            ],
+            "Countries Possible from Languages Spotted": []
+        },
+        {
+            "Image": "Evaluation/Images/IMG-56.jpg",
+            "Environment Type": "Outdoor",
+            "Scene Category": [
+                {
+                    "Description": "stage/outdoor",
+                    "Confidence": "0.043"
+                },
+                {
+                    "Description": "hardware_store",
+                    "Confidence": "0.042"
+                },
+                {
+                    "Description": "stadium/football",
+                    "Confidence": "0.041"
+                },
+                {
+                    "Description": "playground",
+                    "Confidence": "0.041"
+                },
+                {
+                    "Description": "stadium/soccer",
+                    "Confidence": "0.038"
+                }
+            ],
+            "GeoClip Predictions": [
+                {
+                    "Country": "Spain",
+                    "State": "Galicia",
+                    "Confidence": "tensor(0.0260)"
+                },
+                {
+                    "Country": "Spain",
+                    "State": "Catalonia",
+                    "Confidence": "tensor(0.0100)"
+                }
+            ],
+            "Locations Detected from Text": [],
+            "Languages Detected Method 2": [
+                "English"
+            ],
+            "Countries Possible from Languages Spotted": []
+        },
+        {
+            "Image": "Evaluation/Images/IMG-42.jpg",
+            "Environment Type": "Outdoor",
+            "Scene Category": [
+                {
+                    "Description": "embassy",
+                    "Confidence": "0.118"
+                },
+                {
+                    "Description": "courthouse",
+                    "Confidence": "0.117"
+                },
+                {
+                    "Description": "kasbah",
+                    "Confidence": "0.095"
+                },
+                {
+                    "Description": "museum/outdoor",
+                    "Confidence": "0.075"
+                },
+                {
+                    "Description": "synagogue/outdoor",
+                    "Confidence": "0.065"
+                }
+            ],
+            "GeoClip Predictions": [
+                {
+                    "Country": "Lebanon",
+                    "State": "Beirut Governorate",
+                    "Confidence": "tensor(0.2740)"
+                }
+            ],
+            "Locations Detected from Text": [],
+            "Languages Detected Method 2": [
+                "English"
+            ],
+            "Countries Possible from Languages Spotted": []
+        },
+        {
+            "Image": "Evaluation/Images/IMG-54.jpg",
+            "Environment Type": "Outdoor",
+            "Scene Category": [
+                {
+                    "Description": "courtyard",
+                    "Confidence": "0.224"
+                },
+                {
+                    "Description": "alley",
+                    "Confidence": "0.184"
+                },
+                {
+                    "Description": "medina",
+                    "Confidence": "0.103"
+                },
+                {
+                    "Description": "driveway",
+                    "Confidence": "0.084"
+                },
+                {
+                    "Description": "loading_dock",
+                    "Confidence": "0.057"
+                }
+            ],
+            "GeoClip Predictions": [
+                {
+                    "Country": "Italia",
+                    "State": "Veneto",
+                    "Confidence": "tensor(0.0290)"
+                }
+            ],
+            "Locations Detected from Text": [],
+            "Languages Detected Method 2": [
+                "Italian",
+                "English"
+            ],
+            "Countries Possible from Languages Spotted": [
+                "Holy See (Vatican City State)",
+                "Malta",
+                "Australia",
+                "Austria",
+                "Germany",
+                "United Kingdom",
+                "France",
+                "Canada",
+                "San Marino",
+                "United States",
+                "Italy",
+                "Slovenia",
+                "Brazil",
+                "Switzerland",
+                "Croatia"
+            ]
+        },
+        {
+            "Image": "Evaluation/Images/IMG-40.jpg",
+            "Environment Type": "Indoor",
+            "Scene Category": [
+                {
+                    "Description": "beer_hall",
+                    "Confidence": "0.26"
+                },
+                {
+                    "Description": "beauty_salon",
+                    "Confidence": "0.255"
+                },
+                {
+                    "Description": "chemistry_lab",
+                    "Confidence": "0.133"
+                },
+                {
+                    "Description": "coffee_shop",
+                    "Confidence": "0.066"
+                },
+                {
+                    "Description": "bar",
+                    "Confidence": "0.025"
+                }
+            ],
+            "GeoClip Predictions": [
+                {
+                    "Country": "Japan",
+                    "State": "Okinawa Prefecture",
+                    "Confidence": "tensor(0.0150)"
+                },
+                {
+                    "Country": "Japan",
+                    "State": "Yamaguchi Prefecture",
+                    "Confidence": "tensor(0.0030)"
+                }
+            ],
+            "Locations Detected from Text": [],
+            "Languages Detected Method 2": [
+                "English",
+                "Japanese",
+                "Chinese"
+            ],
+            "Countries Possible from Languages Spotted": [
+                "Mongolia",
+                "Singapore",
+                "China",
+                "Malaysia",
+                "Macao",
+                "Canada",
+                "Hong Kong",
+                "Japan",
+                "Brazil"
+            ]
+        },
+        {
+            "Image": "Evaluation/Images/IMG-41.jpg",
+            "Environment Type": "Outdoor",
+            "Scene Category": [
+                {
+                    "Description": "synagogue/outdoor",
+                    "Confidence": "0.056"
+                },
+                {
+                    "Description": "embassy",
+                    "Confidence": "0.046"
+                },
+                {
+                    "Description": "hotel/outdoor",
+                    "Confidence": "0.032"
+                },
+                {
+                    "Description": "plaza",
+                    "Confidence": "0.022"
+                },
+                {
+                    "Description": "temple/asia",
+                    "Confidence": "0.02"
+                }
+            ],
+            "GeoClip Predictions": [
+                {
+                    "Country": "Malaysia",
+                    "State": "Selangor",
+                    "Confidence": "tensor(0.1310)"
+                },
+                {
+                    "Country": "Malaysia",
+                    "State": "Kuala Lumpur",
+                    "Confidence": "tensor(0.0260)"
+                }
+            ],
+            "Locations Detected from Text": [],
+            "Languages Detected Method 2": [
+                "English",
+                "Tamil"
+            ],
+            "Countries Possible from Languages Spotted": [
+                "Mauritius",
+                "Meeting",
+                "Singapore",
+                "United Kingdom",
+                "India",
+                "Canada",
+                "Malaysia",
+                "Sri Lanka"
+            ]
+        },
+        {
+            "Image": "Evaluation/Images/IMG-55.jpg",
+            "Environment Type": "Indoor",
+            "Scene Category": [
+                {
+                    "Description": "movie_theater/indoor",
+                    "Confidence": "0.202"
+                },
+                {
+                    "Description": "conference_center",
+                    "Confidence": "0.186"
+                },
+                {
+                    "Description": "legislative_chamber",
+                    "Confidence": "0.123"
+                },
+                {
+                    "Description": "auditorium",
+                    "Confidence": "0.1"
+                },
+                {
+                    "Description": "ballroom",
+                    "Confidence": "0.074"
+                }
+            ],
+            "GeoClip Predictions": [
+                {
+                    "Country": "Ireland / Ireland",
+                    "State": "Leinster",
+                    "Confidence": "tensor(0.0510)"
+                }
+            ],
+            "Locations Detected from Text": [],
+            "Languages Detected Method 2": [
+                "English"
+            ],
+            "Countries Possible from Languages Spotted": []
+        },
+        {
+            "Image": "Evaluation/Images/IMG-51.jpg",
+            "Environment Type": "Indoor",
+            "Scene Category": [
+                {
+                    "Description": "berth",
+                    "Confidence": "0.132"
+                },
+                {
+                    "Description": "dorm_room",
+                    "Confidence": "0.12"
+                },
+                {
+                    "Description": "youth_hostel",
+                    "Confidence": "0.105"
+                },
+                {
+                    "Description": "alcove",
+                    "Confidence": "0.099"
+                },
+                {
+                    "Description": "jail_cell",
+                    "Confidence": "0.096"
+                }
+            ],
+            "GeoClip Predictions": [
+                {
+                    "Country": "T\u00fcrkiye",
+                    "State": "Central Anatolia Region",
+                    "Confidence": "tensor(0.0680)"
+                },
+                {
+                    "Country": "T\u00fcrkiye",
+                    "State": "Nevsehir",
+                    "Confidence": "tensor(0.0280)"
+                },
+                {
+                    "Country": "T\u00fcrkiye",
+                    "State": "Aegean Region",
+                    "Confidence": "tensor(0.0160)"
+                }
+            ]
+        },
+        {
+            "Image": "Evaluation/Images/IMG-45.jpg",
+            "Environment Type": "Indoor",
+            "Scene Category": [
+                {
+                    "Description": "bazaar/indoor",
+                    "Confidence": "0.546"
+                },
+                {
+                    "Description": "flea_market/indoor",
+                    "Confidence": "0.085"
+                },
+                {
+                    "Description": "market/indoor",
+                    "Confidence": "0.063"
+                },
+                {
+                    "Description": "arcade",
+                    "Confidence": "0.037"
+                },
+                {
+                    "Description": "bazaar/outdoor",
+                    "Confidence": "0.027"
+                }
+            ],
+            "GeoClip Predictions": [
+                {
+                    "Country": "T\u00fcrkiye",
+                    "State": "Marmara Region",
+                    "Confidence": "tensor(0.0870)"
+                }
+            ]
+        },
+        {
+            "Image": "Evaluation/Images/IMG-44.jpg",
+            "Environment Type": "Outdoor",
+            "Scene Category": [
+                {
+                    "Description": "playground",
+                    "Confidence": "0.19"
+                },
+                {
+                    "Description": "park",
+                    "Confidence": "0.13"
+                },
+                {
+                    "Description": "driveway",
+                    "Confidence": "0.049"
+                },
+                {
+                    "Description": "japanese_garden",
+                    "Confidence": "0.038"
+                },
+                {
+                    "Description": "promenade",
+                    "Confidence": "0.033"
+                }
+            ],
+            "GeoClip Predictions": [
+                {
+                    "Country": "Russia",
+                    "State": "Northwestern Federal District",
+                    "Confidence": "tensor(0.0190)"
+                },
+                {
+                    "Country": "Russia",
+                    "State": "Central Federal District",
+                    "Confidence": "tensor(0.0180)"
+                }
+            ]
+        },
+        {
+            "Image": "Evaluation/Images/IMG-50.jpg",
+            "Environment Type": "Indoor",
+            "Scene Category": [
+                {
+                    "Description": "catacomb",
+                    "Confidence": "0.2"
+                },
+                {
+                    "Description": "burial_chamber",
+                    "Confidence": "0.191"
+                },
+                {
+                    "Description": "alcove",
+                    "Confidence": "0.055"
+                },
+                {
+                    "Description": "throne_room",
+                    "Confidence": "0.041"
+                },
+                {
+                    "Description": "jail_cell",
+                    "Confidence": "0.029"
+                }
+            ],
+            "GeoClip Predictions": [
+                {
+                    "Country": "Thailand",
+                    "State": "Nong Khai Province",
+                    "Confidence": "tensor(0.0230)"
+                },
+                {
+                    "Country": "Thailand",
+                    "State": "Ban Pong",
+                    "Confidence": "tensor(0.0100)"
+                },
+                {
+                    "Country": "Thailand",
+                    "State": "Wat That",
+                    "Confidence": "tensor(0.0100)"
+                },
+                {
+                    "Country": "Thailand",
+                    "State": "Chiang Mai Province",
+                    "Confidence": "tensor(0.0090)"
+                },
+                {
+                    "Country": "Laos",
+                    "State": "Vientiane Capital",
+                    "Confidence": "tensor(0.0090)"
+                }
+            ]
+        },
+        {
+            "Image": "Evaluation/Images/IMG-46.jpg",
+            "Environment Type": "Outdoor",
+            "Scene Category": [
+                {
+                    "Description": "temple/asia",
+                    "Confidence": "0.357"
+                },
+                {
+                    "Description": "pagoda",
+                    "Confidence": "0.124"
+                },
+                {
+                    "Description": "ticket_booth",
+                    "Confidence": "0.025"
+                },
+                {
+                    "Description": "bullring",
+                    "Confidence": "0.022"
+                },
+                {
+                    "Description": "lock_chamber",
+                    "Confidence": "0.021"
+                }
+            ],
+            "GeoClip Predictions": [
+                {
+                    "Country": "China",
+                    "State": "Sichuan Province",
+                    "Confidence": "tensor(0.0280)"
+                },
+                {
+                    "Country": "China",
+                    "State": "Hezhou City",
+                    "Confidence": "tensor(0.0170)"
+                },
+                {
+                    "Country": "China",
+                    "State": "Dalian",
+                    "Confidence": "tensor(0.0080)"
+                }
+            ],
+            "Locations Detected from Text": [],
+            "Languages Detected Method 2": [
+                "English",
+                "Chinese"
+            ],
+            "Countries Possible from Languages Spotted": [
+                "Mongolia",
+                "Singapore",
+                "China",
+                "Macao",
+                "Canada",
+                "Hong Kong",
+                "Malaysia"
+            ]
+        },
+        {
+            "Image": "Evaluation/Images/IMG-52.jpg",
+            "Environment Type": "Indoor",
+            "Scene Category": [
+                {
+                    "Description": "bus_interior",
+                    "Confidence": "0.253"
+                },
+                {
+                    "Description": "airplane_cabin",
+                    "Confidence": "0.2"
+                },
+                {
+                    "Description": "train_interior",
+                    "Confidence": "0.196"
+                },
+                {
+                    "Description": "physics_laboratory",
+                    "Confidence": "0.026"
+                },
+                {
+                    "Description": "legislative_chamber",
+                    "Confidence": "0.024"
+                }
+            ],
+            "GeoClip Predictions": [
+                {
+                    "Country": "United Kingdom",
+                    "State": "Alba / Scotland",
+                    "Confidence": "tensor(0.1450)"
+                }
+            ]
+        },
+        {
+            "Image": "Evaluation/Images/IMG-53.jpg",
+            "Environment Type": "Outdoor",
+            "Scene Category": [
+                {
+                    "Description": "fountain",
+                    "Confidence": "0.639"
+                },
+                {
+                    "Description": "natural_history_museum",
+                    "Confidence": "0.053"
+                },
+                {
+                    "Description": "water_park",
+                    "Confidence": "0.04"
+                },
+                {
+                    "Description": "museum/outdoor",
+                    "Confidence": "0.03"
+                },
+                {
+                    "Description": "plaza",
+                    "Confidence": "0.013"
+                }
+            ],
+            "GeoClip Predictions": [
+                {
+                    "Country": "United Kingdom",
+                    "State": "England",
+                    "Confidence": "tensor(0.0160)"
+                },
+                {
+                    "Country": "United Kingdom",
+                    "State": "Wales / Wales",
+                    "Confidence": "tensor(0.0040)"
+                }
+            ]
+        },
+        {
+            "Image": "Evaluation/Images/IMG-47.jpg",
+            "Environment Type": "Indoor",
+            "Scene Category": [
+                {
+                    "Description": "shopping_mall/indoor",
+                    "Confidence": "0.084"
+                },
+                {
+                    "Description": "food_court",
+                    "Confidence": "0.079"
+                },
+                {
+                    "Description": "arcade",
+                    "Confidence": "0.078"
+                },
+                {
+                    "Description": "bazaar/outdoor",
+                    "Confidence": "0.07"
+                },
+                {
+                    "Description": "fastfood_restaurant",
+                    "Confidence": "0.07"
+                }
+            ],
+            "GeoClip Predictions": [
+                {
+                    "Country": "China",
+                    "State": "Hong Kong",
+                    "Confidence": "tensor(0.0730)"
+                }
+            ],
+            "Locations Detected from Text": [],
+            "Languages Detected Method 2": [
+                "English",
+                "Japanese",
+                "Chinese"
+            ],
+            "Countries Possible from Languages Spotted": [
+                "Mongolia",
+                "Singapore",
+                "Japan",
+                "China",
+                "Macao",
+                "Canada",
+                "Hong Kong",
+                "Brazil",
+                "Malaysia"
+            ]
+        },
+        {
+            "Image": "Evaluation/Images/IMG-34.jpg",
+            "Environment Type": "Outdoor",
+            "Scene Category": [
+                {
+                    "Description": "fishpond",
+                    "Confidence": "0.224"
+                },
+                {
+                    "Description": "swimming_hole",
+                    "Confidence": "0.082"
+                },
+                {
+                    "Description": "creek",
+                    "Confidence": "0.076"
+                },
+                {
+                    "Description": "pond",
+                    "Confidence": "0.06"
+                },
+                {
+                    "Description": "marsh",
+                    "Confidence": "0.059"
+                }
+            ],
+            "GeoClip Predictions": [
+                {
+                    "Country": "United Kingdom",
+                    "State": "England",
+                    "Confidence": "tensor(0.1490)"
+                }
+            ]
+        },
+        {
+            "Image": "Evaluation/Images/IMG-08.jpg",
+            "Environment Type": "Outdoor",
+            "Scene Category": [
+                {
+                    "Description": "motel",
+                    "Confidence": "0.38"
+                },
+                {
+                    "Description": "highway",
+                    "Confidence": "0.089"
+                },
+                {
+                    "Description": "desert_road",
+                    "Confidence": "0.043"
+                },
+                {
+                    "Description": "gas_station",
+                    "Confidence": "0.042"
+                },
+                {
+                    "Description": "desert/vegetation",
+                    "Confidence": "0.036"
+                }
+            ],
+            "GeoClip Predictions": [
+                {
+                    "Country": "United States",
+                    "State": "California",
+                    "Confidence": "tensor(0.2240)"
+                },
+                {
+                    "Country": "United States",
+                    "State": "Los Angeles County",
+                    "Confidence": "tensor(0.0480)"
+                }
+            ],
+            "Locations Detected from Text": [],
+            "Languages Detected Method 2": [
+                "English"
+            ],
+            "Countries Possible from Languages Spotted": []
+        },
+        {
+            "Image": "Evaluation/Images/IMG-09.jpg",
+            "Environment Type": "Outdoor",
+            "Scene Category": [
+                {
+                    "Description": "bus_station/indoor",
+                    "Confidence": "1.0"
+                }
+            ],
+            "GeoClip Predictions": [
+                {
+                    "Country": "United Kingdom",
+                    "State": "England",
+                    "Confidence": "tensor(0.3030)"
+                }
+            ],
+            "Locations Detected from Text": [],
+            "Languages Detected Method 2": [
+                "Welsh",
+                "English"
+            ],
+            "Countries Possible from Languages Spotted": [
+                "United Kingdom",
+                "Argentina"
+            ]
+        },
+        {
+            "Image": "Evaluation/Images/IMG-35.jpg",
+            "Environment Type": "Outdoor",
+            "Scene Category": [
+                {
+                    "Description": "crosswalk",
+                    "Confidence": "0.973"
+                },
+                {
+                    "Description": "street",
+                    "Confidence": "0.012"
+                }
+            ],
+            "GeoClip Predictions": [
+                {
+                    "Country": "China",
+                    "State": "Shanghai",
+                    "Confidence": "tensor(0.0250)"
+                }
+            ],
+            "Locations Detected from Text": [],
+            "Languages Detected Method 2": [
+                "English"
+            ],
+            "Countries Possible from Languages Spotted": []
+        },
+        {
+            "Image": "Evaluation/Images/IMG-21.jpg",
+            "Environment Type": "Outdoor",
+            "Scene Category": [
+                {
+                    "Description": "balcony/interior",
+                    "Confidence": "0.16"
+                },
+                {
+                    "Description": "playground",
+                    "Confidence": "0.11"
+                },
+                {
+                    "Description": "orchard",
+                    "Confidence": "0.071"
+                },
+                {
+                    "Description": "sandbox",
+                    "Confidence": "0.034"
+                },
+                {
+                    "Description": "church/indoor",
+                    "Confidence": "0.027"
+                }
+            ],
+            "GeoClip Predictions": [
+                {
+                    "Country": "United Kingdom",
+                    "State": "England",
+                    "Confidence": "tensor(0.0080)"
+                },
+                {
+                    "Country": "Italia",
+                    "State": "Liguria",
+                    "Confidence": "tensor(0.0050)"
+                }
+            ]
+        },
+        {
+            "Image": "Evaluation/Images/IMG-37.jpg",
+            "Environment Type": "Indoor",
+            "Scene Category": [
+                {
+                    "Description": "dorm_room",
+                    "Confidence": "0.194"
+                },
+                {
+                    "Description": "beauty_salon",
+                    "Confidence": "0.142"
+                },
+                {
+                    "Description": "playroom",
+                    "Confidence": "0.101"
+                },
+                {
+                    "Description": "youth_hostel",
+                    "Confidence": "0.086"
+                },
+                {
+                    "Description": "childs_room",
+                    "Confidence": "0.041"
+                }
+            ],
+            "GeoClip Predictions": [
+                {
+                    "Country": "United States",
+                    "State": "Louisiana",
+                    "Confidence": "tensor(0.0620)"
+                },
+                {
+                    "Country": "United States",
+                    "State": "California",
+                    "Confidence": "tensor(0.0110)"
+                },
+                {
+                    "Country": "United States",
+                    "State": "Pennsylvania",
+                    "Confidence": "tensor(0.0070)"
+                }
+            ],
+            "Locations Detected from Text": [],
+            "Languages Detected Method 2": [
+                "English"
+            ],
+            "Countries Possible from Languages Spotted": []
+        },
+        {
+            "Image": "Evaluation/Images/IMG-23.jpg",
+            "Environment Type": "Outdoor",
+            "Scene Category": [
+                {
+                    "Description": "bus_station/indoor",
+                    "Confidence": "0.298"
+                },
+                {
+                    "Description": "parking_garage/outdoor",
+                    "Confidence": "0.09"
+                },
+                {
+                    "Description": "ticket_booth",
+                    "Confidence": "0.035"
+                },
+                {
+                    "Description": "street",
+                    "Confidence": "0.035"
+                },
+                {
+                    "Description": "hospital",
+                    "Confidence": "0.021"
+                }
+            ],
+            "GeoClip Predictions": [
+                {
+                    "Country": "Russia",
+                    "State": "Far Eastern Federal District",
+                    "Confidence": "tensor(0.0430)"
+                },
+                {
+                    "Country": "Russia",
+                    "State": "Ural Federal District",
+                    "Confidence": "tensor(0.0230)"
+                },
+                {
+                    "Country": "Ukraine",
+                    "State": "Kyiv",
+                    "Confidence": "tensor(0.0210)"
+                },
+                {
+                    "Country": "Russia",
+                    "State": "Southern Federal District",
+                    "Confidence": "tensor(0.0200)"
+                }
+            ],
+            "Locations Detected from Text": [],
+            "Languages Detected Method 2": [
+                "English"
+            ],
+            "Countries Possible from Languages Spotted": []
+        },
+        {
+            "Image": "Evaluation/Images/IMG-22.jpg",
+            "Environment Type": "Outdoor",
+            "Scene Category": [
+                {
+                    "Description": "loading_dock",
+                    "Confidence": "0.215"
+                },
+                {
+                    "Description": "doorway/outdoor",
+                    "Confidence": "0.11"
+                },
+                {
+                    "Description": "barndoor",
+                    "Confidence": "0.096"
+                },
+                {
+                    "Description": "phone_booth",
+                    "Confidence": "0.083"
+                },
+                {
+                    "Description": "bank_vault",
+                    "Confidence": "0.064"
+                }
+            ],
+            "GeoClip Predictions": [
+                {
+                    "Country": "Spain",
+                    "State": "Estremadura",
+                    "Confidence": "tensor(0.0370)"
+                },
+                {
+                    "Country": "Spain",
+                    "State": "Castile-La Mancha",
+                    "Confidence": "tensor(0.0170)"
+                },
+                {
+                    "Country": "Spain",
+                    "State": "Aragon",
+                    "Confidence": "tensor(0.0100)"
+                }
+            ],
+            "Locations Detected from Text": [],
+            "Languages Detected Method 2": [
+                "English"
+            ],
+            "Countries Possible from Languages Spotted": []
+        },
+        {
+            "Image": "Evaluation/Images/IMG-36.jpg",
+            "Environment Type": "Outdoor",
+            "Scene Category": [
+                {
+                    "Description": "bus_station/indoor",
+                    "Confidence": "0.499"
+                },
+                {
+                    "Description": "ticket_booth",
+                    "Confidence": "0.114"
+                },
+                {
+                    "Description": "train_station/platform",
+                    "Confidence": "0.042"
+                },
+                {
+                    "Description": "subway_station/platform",
+                    "Confidence": "0.031"
+                },
+                {
+                    "Description": "crosswalk",
+                    "Confidence": "0.02"
+                }
+            ],
+            "GeoClip Predictions": [
+                {
+                    "Country": "United States",
+                    "State": "California",
+                    "Confidence": "tensor(0.0380)"
+                }
+            ],
+            "Locations Detected from Text": [],
+            "Languages Detected Method 2": [
+                "English"
+            ],
+            "Countries Possible from Languages Spotted": []
+        },
+        {
+            "Image": "Evaluation/Images/IMG-32.jpg",
+            "Environment Type": "Indoor",
+            "Scene Category": [
+                {
+                    "Description": "beauty_salon",
+                    "Confidence": "0.117"
+                },
+                {
+                    "Description": "attic",
+                    "Confidence": "0.076"
+                },
+                {
+                    "Description": "bookstore",
+                    "Confidence": "0.054"
+                },
+                {
+                    "Description": "alcove",
+                    "Confidence": "0.049"
+                },
+                {
+                    "Description": "archive",
+                    "Confidence": "0.045"
+                }
+            ],
+            "GeoClip Predictions": [
+                {
+                    "Country": "United States",
+                    "State": "Georgia",
+                    "Confidence": "tensor(0.0040)"
+                },
+                {
+                    "Country": "United States",
+                    "State": "California",
+                    "Confidence": "tensor(0.0010)"
+                },
+                {
+                    "Country": "United States",
+                    "State": "New Jersey",
+                    "Confidence": "tensor(0.0010)"
+                }
+            ],
+            "Locations Detected from Text": [],
+            "Languages Detected Method 2": [
+                "English"
+            ],
+            "Countries Possible from Languages Spotted": []
+        },
+        {
+            "Image": "Evaluation/Images/IMG-26.jpg",
+            "Environment Type": "Outdoor",
+            "Scene Category": [
+                {
+                    "Description": "lighthouse",
+                    "Confidence": "0.112"
+                },
+                {
+                    "Description": "beach_house",
+                    "Confidence": "0.06"
+                },
+                {
+                    "Description": "hangar/outdoor",
+                    "Confidence": "0.057"
+                },
+                {
+                    "Description": "embassy",
+                    "Confidence": "0.049"
+                },
+                {
+                    "Description": "promenade",
+                    "Confidence": "0.037"
+                }
+            ],
+            "GeoClip Predictions": [
+                {
+                    "Country": "Italia",
+                    "State": "Lombardy",
+                    "Confidence": "tensor(0.2530)"
+                },
+                {
+                    "Country": "Spain",
+                    "State": "Catalonia",
+                    "Confidence": "tensor(0.0690)"
+                }
+            ]
+        },
+        {
+            "Image": "Evaluation/Images/IMG-27.jpg",
+            "Environment Type": "Outdoor",
+            "Scene Category": [
+                {
+                    "Description": "ice_skating_rink/outdoor",
+                    "Confidence": "0.083"
+                },
+                {
+                    "Description": "ice_floe",
+                    "Confidence": "0.068"
+                },
+                {
+                    "Description": "watering_hole",
+                    "Confidence": "0.059"
+                },
+                {
+                    "Description": "islet",
+                    "Confidence": "0.052"
+                },
+                {
+                    "Description": "landing_deck",
+                    "Confidence": "0.047"
+                }
+            ],
+            "GeoClip Predictions": [
+                {
+                    "Country": "Vietnam",
+                    "State": "Hanoi City",
+                    "Confidence": "tensor(0.0220)"
+                },
+                {
+                    "Country": "India",
+                    "State": "Uttar Pradesh",
+                    "Confidence": "tensor(0.0170)"
+                },
+                {
+                    "Country": "Bangladesh",
+                    "State": "Shariatpur District",
+                    "Confidence": "tensor(0.0120)"
+                }
+            ]
+        },
+        {
+            "Image": "Evaluation/Images/IMG-33.jpg",
+            "Environment Type": "Outdoor",
+            "Scene Category": [
+                {
+                    "Description": "street",
+                    "Confidence": "0.113"
+                },
+                {
+                    "Description": "embassy",
+                    "Confidence": "0.076"
+                },
+                {
+                    "Description": "bazaar/outdoor",
+                    "Confidence": "0.069"
+                },
+                {
+                    "Description": "crosswalk",
+                    "Confidence": "0.038"
+                },
+                {
+                    "Description": "parking_lot",
+                    "Confidence": "0.031"
+                }
+            ],
+            "GeoClip Predictions": [
+                {
+                    "Country": "United States",
+                    "State": "Washington",
+                    "Confidence": "tensor(0.0640)"
+                }
+            ],
+            "Locations Detected from Text": [],
+            "Languages Detected Method 2": [
+                "English"
+            ],
+            "Countries Possible from Languages Spotted": []
+        },
+        {
+            "Image": "Evaluation/Images/IMG-19.jpg",
+            "Environment Type": "Indoor",
+            "Scene Category": [
+                {
+                    "Description": "legislative_chamber",
+                    "Confidence": "0.099"
+                },
+                {
+                    "Description": "classroom",
+                    "Confidence": "0.058"
+                },
+                {
+                    "Description": "kindergarden_classroom",
+                    "Confidence": "0.045"
+                },
+                {
+                    "Description": "dorm_room",
+                    "Confidence": "0.035"
+                },
+                {
+                    "Description": "art_school",
+                    "Confidence": "0.031"
+                }
+            ],
+            "GeoClip Predictions": [
+                {
+                    "Country": "Japan",
+                    "State": "Shiga Prefecture",
+                    "Confidence": "tensor(0.0670)"
+                },
+                {
+                    "Country": "Japan",
+                    "State": "Miyagi Prefecture",
+                    "Confidence": "tensor(0.0440)"
+                },
+                {
+                    "Country": "Japan",
+                    "State": "Aichi prefecture",
+                    "Confidence": "tensor(0.0370)"
+                }
+            ]
+        },
+        {
+            "Image": "Evaluation/Images/IMG-20.jpeg",
+            "Environment Type": "Indoor",
+            "Scene Category": [
+                {
+                    "Description": "beauty_salon",
+                    "Confidence": "0.158"
+                },
+                {
+                    "Description": "server_room",
+                    "Confidence": "0.147"
+                },
+                {
+                    "Description": "locker_room",
+                    "Confidence": "0.13"
+                },
+                {
+                    "Description": "booth/indoor",
+                    "Confidence": "0.114"
+                },
+                {
+                    "Description": "office_cubicles",
+                    "Confidence": "0.108"
+                }
+            ],
+            "GeoClip Predictions": [
+                {
+                    "Country": "United States",
+                    "State": "Texas",
+                    "Confidence": "tensor(0.0330)"
+                },
+                {
+                    "Country": "United States",
+                    "State": "Connecticut",
+                    "Confidence": "tensor(0.0100)"
+                },
+                {
+                    "Country": "United States",
+                    "State": "Mississippi",
+                    "Confidence": "tensor(0.0080)"
+                },
+                {
+                    "Country": "United States",
+                    "State": "Pennsylvania",
+                    "Confidence": "tensor(0.0080)"
+                }
+            ],
+            "Locations Detected from Text": [],
+            "Languages Detected Method 2": [
+                "English"
+            ],
+            "Countries Possible from Languages Spotted": []
+        },
+        {
+            "Image": "Evaluation/Images/IMG-25.jpg",
+            "Environment Type": "Outdoor",
+            "Scene Category": [
+                {
+                    "Description": "throne_room",
+                    "Confidence": "0.061"
+                },
+                {
+                    "Description": "library/outdoor",
+                    "Confidence": "0.055"
+                },
+                {
+                    "Description": "temple/asia",
+                    "Confidence": "0.046"
+                },
+                {
+                    "Description": "courtyard",
+                    "Confidence": "0.042"
+                },
+                {
+                    "Description": "museum/outdoor",
+                    "Confidence": "0.041"
+                }
+            ],
+            "GeoClip Predictions": [
+                {
+                    "Country": "Japan",
+                    "State": "Kyoto Prefecture",
+                    "Confidence": "tensor(0.0380)"
+                },
+                {
+                    "Country": "Japan",
+                    "State": "Tokyo",
+                    "Confidence": "tensor(0.0240)"
+                }
+            ]
+        },
+        {
+            "Image": "Evaluation/Images/IMG-31.jpg",
+            "Environment Type": "Indoor",
+            "Scene Category": [
+                {
+                    "Description": "throne_room",
+                    "Confidence": "0.146"
+                },
+                {
+                    "Description": "arcade",
+                    "Confidence": "0.101"
+                },
+                {
+                    "Description": "entrance_hall",
+                    "Confidence": "0.101"
+                },
+                {
+                    "Description": "ticket_booth",
+                    "Confidence": "0.069"
+                },
+                {
+                    "Description": "elevator_lobby",
+                    "Confidence": "0.036"
+                }
+            ],
+            "GeoClip Predictions": [
+                {
+                    "Country": "Singapore",
+                    "State": "Singapore",
+                    "Confidence": "tensor(0.0280)"
+                },
+                {
+                    "Country": "Malaysia",
+                    "State": "Melaka",
+                    "Confidence": "tensor(0.0220)"
+                }
+            ],
+            "Locations Detected from Text": [],
+            "Languages Detected Method 2": [
+                "English",
+                "Tamil",
+                "Urdu"
+            ],
+            "Countries Possible from Languages Spotted": [
+                "Mauritius",
+                "Meeting",
+                "Singapore",
+                "United Kingdom",
+                "India",
+                "Pakistan",
+                "Canada",
+                "Malaysia",
+                "Sri Lanka"
+            ]
+        },
+        {
+            "Image": "Evaluation/Images/IMG-30.jpg",
+            "Environment Type": "Indoor",
+            "Scene Category": [
+                {
+                    "Description": "hospital_room",
+                    "Confidence": "0.169"
+                },
+                {
+                    "Description": "airplane_cabin",
+                    "Confidence": "0.106"
+                },
+                {
+                    "Description": "beauty_salon",
+                    "Confidence": "0.08"
+                },
+                {
+                    "Description": "berth",
+                    "Confidence": "0.052"
+                },
+                {
+                    "Description": "attic",
+                    "Confidence": "0.042"
+                }
+            ],
+            "GeoClip Predictions": [
+                {
+                    "Country": "Denmark",
+                    "State": "Capital Region",
+                    "Confidence": "tensor(0.0080)"
+                },
+                {
+                    "Country": "Deutschland",
+                    "State": "Schleswig-Holstein",
+                    "Confidence": "tensor(0.0070)"
+                }
+            ]
+        },
+        {
+            "Image": "Evaluation/Images/IMG-24.jpg",
+            "Environment Type": "Outdoor",
+            "Scene Category": [
+                {
+                    "Description": "motel",
+                    "Confidence": "0.037"
+                },
+                {
+                    "Description": "golf_course",
+                    "Confidence": "0.031"
+                },
+                {
+                    "Description": "water_park",
+                    "Confidence": "0.024"
+                },
+                {
+                    "Description": "supermarket",
+                    "Confidence": "0.022"
+                },
+                {
+                    "Description": "embassy",
+                    "Confidence": "0.022"
+                }
+            ],
+            "GeoClip Predictions": [
+                {
+                    "Country": "Algeria",
+                    "State": "Blida",
+                    "Confidence": "tensor(0.0970)"
+                },
+                {
+                    "Country": "Tunisia",
+                    "State": "Tabarka delegation",
+                    "Confidence": "tensor(0.0450)"
+                },
+                {
+                    "Country": "Morocco",
+                    "State": "Oriental",
+                    "Confidence": "tensor(0.0290)"
+                },
+                {
+                    "Country": "Algeria",
+                    "State": "Teams Teachers Teens",
+                    "Confidence": "tensor(0.0280)"
+                }
+            ],
+            "Locations Detected from Text": [],
+            "Languages Detected Method 2": [
+                "English",
+                "Urdu"
+            ],
+            "Countries Possible from Languages Spotted": [
+                "Mauritius",
+                "United Kingdom",
+                "India",
+                "Pakistan",
+                "Canada"
+            ]
+        },
+        {
+            "Image": "Evaluation/Images/IMG-18.jpg",
+            "Environment Type": "Indoor",
+            "Scene Category": [
+                {
+                    "Description": "throne_room",
+                    "Confidence": "0.615"
+                },
+                {
+                    "Description": "toyshop",
+                    "Confidence": "0.038"
+                },
+                {
+                    "Description": "church/indoor",
+                    "Confidence": "0.038"
+                },
+                {
+                    "Description": "temple/asia",
+                    "Confidence": "0.033"
+                },
+                {
+                    "Description": "candy_store",
+                    "Confidence": "0.033"
+                }
+            ],
+            "GeoClip Predictions": [
+                {
+                    "Country": "grain",
+                    "State": "Thimphu Dzongkhag",
+                    "Confidence": "tensor(0.1750)"
+                }
+            ]
+        },
+        {
+            "Image": "Evaluation/Images/IMG-01.jpg",
             "Environment Type": "Outdoor",
             "Scene Category": [
                 {
@@ -15,14 +1563,6 @@
                 {
                     "Description": "ticket_booth",
                     "Confidence": "0.012"
-                },
-                {
-                    "Description": "palace",
-                    "Confidence": "0.005"
-                },
-                {
-                    "Description": "gas_station",
-                    "Confidence": "0.004"
                 }
             ],
             "GeoClip Predictions": [
@@ -48,7 +1588,279 @@
             ]
         },
         {
+<<<<<<< HEAD
             "Image": "Evaluation/Images\\IMG-02.jpg",
+=======
+            "Image": "Evaluation/Images/IMG-15.jpg",
+            "Environment Type": "Indoor",
+            "Scene Category": [
+                {
+                    "Description": "beauty_salon",
+                    "Confidence": "0.098"
+                },
+                {
+                    "Description": "ticket_booth",
+                    "Confidence": "0.062"
+                },
+                {
+                    "Description": "fastfood_restaurant",
+                    "Confidence": "0.061"
+                },
+                {
+                    "Description": "booth/indoor",
+                    "Confidence": "0.039"
+                },
+                {
+                    "Description": "playroom",
+                    "Confidence": "0.036"
+                }
+            ],
+            "GeoClip Predictions": [
+                {
+                    "Country": "Sweden",
+                    "State": "Stockholm County",
+                    "Confidence": "tensor(0.0320)"
+                },
+                {
+                    "Country": "Sweden",
+                    "State": "Vastra Gotaland County",
+                    "Confidence": "tensor(0.0260)"
+                },
+                {
+                    "Country": "Denmark",
+                    "State": "Capital Region",
+                    "Confidence": "tensor(0.0100)"
+                }
+            ],
+            "Locations Detected from Text": [],
+            "Languages Detected Method 2": [
+                "Swedish",
+                "English"
+            ],
+            "Countries Possible from Languages Spotted": [
+                "\u00c5land Islands",
+                "Finland",
+                "Sweden",
+                "Denmark"
+            ]
+        },
+        {
+            "Image": "Evaluation/Images/IMG-29.jpg",
+            "Environment Type": "Outdoor",
+            "Scene Category": [
+                {
+                    "Description": "medina",
+                    "Confidence": "0.151"
+                },
+                {
+                    "Description": "slum",
+                    "Confidence": "0.141"
+                },
+                {
+                    "Description": "bazaar/outdoor",
+                    "Confidence": "0.139"
+                },
+                {
+                    "Description": "alley",
+                    "Confidence": "0.06"
+                },
+                {
+                    "Description": "street",
+                    "Confidence": "0.032"
+                }
+            ],
+            "GeoClip Predictions": [
+                {
+                    "Country": "Taiwan",
+                    "State": "New Taipei City",
+                    "Confidence": "tensor(0.2830)"
+                }
+            ],
+            "Locations Detected from Text": [],
+            "Languages Detected Method 2": [
+                "English",
+                "Chinese"
+            ],
+            "Countries Possible from Languages Spotted": [
+                "Mongolia",
+                "Singapore",
+                "China",
+                "Macao",
+                "Canada",
+                "Hong Kong",
+                "Malaysia"
+            ]
+        },
+        {
+            "Image": "Evaluation/Images/IMG-28.jpg",
+            "Environment Type": "Outdoor",
+            "Scene Category": [
+                {
+                    "Description": "gas_station",
+                    "Confidence": "0.409"
+                },
+                {
+                    "Description": "street",
+                    "Confidence": "0.128"
+                },
+                {
+                    "Description": "parking_garage/outdoor",
+                    "Confidence": "0.072"
+                },
+                {
+                    "Description": "phone_booth",
+                    "Confidence": "0.057"
+                },
+                {
+                    "Description": "crosswalk",
+                    "Confidence": "0.029"
+                }
+            ],
+            "GeoClip Predictions": [
+                {
+                    "Country": "Japan",
+                    "State": "Osaka Prefecture",
+                    "Confidence": "tensor(0.0760)"
+                }
+            ],
+            "Locations Detected from Text": [],
+            "Languages Detected Method 2": [
+                "English",
+                "Japanese",
+                "Chinese"
+            ],
+            "Countries Possible from Languages Spotted": [
+                "Mongolia",
+                "Singapore",
+                "China",
+                "Malaysia",
+                "Macao",
+                "Canada",
+                "Hong Kong",
+                "Japan",
+                "Brazil"
+            ]
+        },
+        {
+            "Image": "Evaluation/Images/IMG-14.jpg",
+            "Environment Type": "Outdoor",
+            "Scene Category": [
+                {
+                    "Description": "rainforest",
+                    "Confidence": "0.301"
+                },
+                {
+                    "Description": "mountain_path",
+                    "Confidence": "0.102"
+                },
+                {
+                    "Description": "mountain",
+                    "Confidence": "0.065"
+                },
+                {
+                    "Description": "waterfall",
+                    "Confidence": "0.046"
+                },
+                {
+                    "Description": "valley",
+                    "Confidence": "0.04"
+                }
+            ],
+            "GeoClip Predictions": [
+                {
+                    "Country": "South Africa",
+                    "State": "Sarah Baartman District Municipality",
+                    "Confidence": "tensor(0.2900)"
+                },
+                {
+                    "Country": "South Africa",
+                    "State": "Eastern Cape",
+                    "Confidence": "tensor(0.1990)"
+                },
+                {
+                    "Country": "South Africa",
+                    "State": "Western Cape",
+                    "Confidence": "tensor(0.0820)"
+                },
+                {
+                    "Country": "United States",
+                    "State": "California",
+                    "Confidence": "tensor(0.0340)"
+                }
+            ]
+        },
+        {
+            "Image": "Evaluation/Images/IMG-16.jpg",
+            "Environment Type": "Outdoor",
+            "Scene Category": [
+                {
+                    "Description": "forest_path",
+                    "Confidence": "0.23"
+                },
+                {
+                    "Description": "forest/broadleaf",
+                    "Confidence": "0.147"
+                },
+                {
+                    "Description": "rainforest",
+                    "Confidence": "0.126"
+                },
+                {
+                    "Description": "mountain_path",
+                    "Confidence": "0.066"
+                },
+                {
+                    "Description": "tree_farm",
+                    "Confidence": "0.043"
+                }
+            ],
+            "GeoClip Predictions": [
+                {
+                    "Country": "Japan",
+                    "State": "Kagoshima Prefecture",
+                    "Confidence": "tensor(0.0750)"
+                },
+                {
+                    "Country": "Japan",
+                    "State": "Kumage County",
+                    "Confidence": "tensor(0.0530)"
+                },
+                {
+                    "Country": "Japan",
+                    "State": "Shizuoka Prefecture",
+                    "Confidence": "tensor(0.0310)"
+                },
+                {
+                    "Country": "Japan",
+                    "State": "Kanagawa Prefecture",
+                    "Confidence": "tensor(0.0250)"
+                }
+            ],
+            "Locations Detected from Text": [],
+            "Languages Detected Method 2": [
+                "English",
+                "Japanese",
+                "Chinese",
+                "Korean"
+            ],
+            "Countries Possible from Languages Spotted": [
+                "Mongolia",
+                "Singapore",
+                "China",
+                "Malaysia",
+                "Korea, Republic of",
+                "Korea, Democratic People's Republic of",
+                "Macao",
+                "Canada",
+                "United States",
+                "Hong Kong",
+                "Japan",
+                "Brazil"
+            ]
+        },
+        {
+            "Image": "Evaluation/Images/IMG-02.jpg",
+>>>>>>> e9aaf021ae5ef6adb9b7d571156632985fca8980
             "Environment Type": "Indoor",
             "Scene Category": [
                 {
@@ -145,6 +1957,741 @@
             "Countries Possible from Languages Spotted": [
                 "Luxembourg"
             ]
+<<<<<<< HEAD
+=======
+        },
+        {
+            "Image": "Evaluation/Images/IMG-17.jpg",
+            "Environment Type": "Indoor",
+            "Scene Category": [
+                {
+                    "Description": "burial_chamber",
+                    "Confidence": "0.373"
+                },
+                {
+                    "Description": "alcove",
+                    "Confidence": "0.079"
+                },
+                {
+                    "Description": "catacomb",
+                    "Confidence": "0.077"
+                },
+                {
+                    "Description": "sauna",
+                    "Confidence": "0.035"
+                },
+                {
+                    "Description": "jail_cell",
+                    "Confidence": "0.032"
+                }
+            ],
+            "GeoClip Predictions": [
+                {
+                    "Country": "Slovakia",
+                    "State": "Central Slovakia",
+                    "Confidence": "tensor(0.0350)"
+                },
+                {
+                    "Country": "Georgia",
+                    "State": "Sagarejo Municipality",
+                    "Confidence": "tensor(0.0170)"
+                },
+                {
+                    "Country": "Azerbaijan",
+                    "State": "Agstafa district",
+                    "Confidence": "tensor(0.0160)"
+                },
+                {
+                    "Country": "Hungary",
+                    "State": "Transdanubia",
+                    "Confidence": "tensor(0.0160)"
+                },
+                {
+                    "Country": "Cyprus - K\u0131br\u0131s",
+                    "State": "Northern Cyprus",
+                    "Confidence": "tensor(0.0150)"
+                }
+            ]
+        },
+        {
+            "Image": "Evaluation/Images/IMG-13.jpg",
+            "Environment Type": "Indoor",
+            "Scene Category": [
+                {
+                    "Description": "ticket_booth",
+                    "Confidence": "0.164"
+                },
+                {
+                    "Description": "booth/indoor",
+                    "Confidence": "0.137"
+                },
+                {
+                    "Description": "gas_station",
+                    "Confidence": "0.037"
+                },
+                {
+                    "Description": "hospital",
+                    "Confidence": "0.032"
+                },
+                {
+                    "Description": "embassy",
+                    "Confidence": "0.027"
+                }
+            ],
+            "GeoClip Predictions": [
+                {
+                    "Country": "Singapore",
+                    "State": "Singapore",
+                    "Confidence": "tensor(0.0670)"
+                }
+            ],
+            "Locations Detected from Text": [],
+            "Languages Detected Method 2": [
+                "English",
+                "Chinese",
+                "Japanese",
+                "Tamil"
+            ],
+            "Countries Possible from Languages Spotted": [
+                "Mauritius",
+                "Meeting",
+                "Singapore",
+                "Mongolia",
+                "Japan",
+                "China",
+                "United Kingdom",
+                "India",
+                "Macao",
+                "Canada",
+                "Hong Kong",
+                "Brazil",
+                "Malaysia",
+                "Sri Lanka"
+            ]
+        },
+        {
+            "Image": "Evaluation/Images/IMG-07.jpg",
+            "Environment Type": "Outdoor",
+            "Scene Category": [
+                {
+                    "Description": "parking_garage/outdoor",
+                    "Confidence": "0.291"
+                },
+                {
+                    "Description": "campus",
+                    "Confidence": "0.097"
+                },
+                {
+                    "Description": "library/outdoor",
+                    "Confidence": "0.095"
+                },
+                {
+                    "Description": "hospital",
+                    "Confidence": "0.078"
+                },
+                {
+                    "Description": "museum/outdoor",
+                    "Confidence": "0.075"
+                }
+            ],
+            "GeoClip Predictions": [
+                {
+                    "Country": "Deutschland",
+                    "State": "North Rhine-Westphalia",
+                    "Confidence": "tensor(0.0360)"
+                },
+                {
+                    "Country": "The Netherlands",
+                    "State": "The Netherlands",
+                    "Confidence": "tensor(0.0090)"
+                }
+            ]
+        },
+        {
+            "Image": "Evaluation/Images/IMG-06.jpg",
+            "Environment Type": "Outdoor",
+            "Scene Category": [
+                {
+                    "Description": "courthouse",
+                    "Confidence": "0.082"
+                },
+                {
+                    "Description": "church/outdoor",
+                    "Confidence": "0.066"
+                },
+                {
+                    "Description": "temple/asia",
+                    "Confidence": "0.057"
+                },
+                {
+                    "Description": "embassy",
+                    "Confidence": "0.053"
+                },
+                {
+                    "Description": "museum/outdoor",
+                    "Confidence": "0.042"
+                }
+            ],
+            "GeoClip Predictions": [
+                {
+                    "Country": "Australia",
+                    "State": "Victoria",
+                    "Confidence": "tensor(0.0640)"
+                }
+            ],
+            "Locations Detected from Text": [],
+            "Languages Detected Method 2": [
+                "English"
+            ],
+            "Countries Possible from Languages Spotted": []
+        },
+        {
+            "Image": "Evaluation/Images/IMG-38.jpg",
+            "Environment Type": "Outdoor",
+            "Scene Category": [
+                {
+                    "Description": "hangar/outdoor",
+                    "Confidence": "0.069"
+                },
+                {
+                    "Description": "fastfood_restaurant",
+                    "Confidence": "0.068"
+                },
+                {
+                    "Description": "embassy",
+                    "Confidence": "0.021"
+                },
+                {
+                    "Description": "loading_dock",
+                    "Confidence": "0.021"
+                },
+                {
+                    "Description": "hotel/outdoor",
+                    "Confidence": "0.02"
+                }
+            ],
+            "GeoClip Predictions": [
+                {
+                    "Country": "Ireland",
+                    "State": "Leinster",
+                    "Confidence": "tensor(0.0750)"
+                }
+            ],
+            "Locations Detected from Text": [],
+            "Languages Detected Method 2": [
+                "English",
+                "Irish"
+            ],
+            "Countries Possible from Languages Spotted": [
+                "United Kingdom",
+                "Ireland"
+            ]
+        },
+        {
+            "Image": "Evaluation/Images/IMG-04.jpg",
+            "Environment Type": "Outdoor",
+            "Scene Category": [
+                {
+                    "Description": "ice_shelf",
+                    "Confidence": "0.222"
+                },
+                {
+                    "Description": "hangar/outdoor",
+                    "Confidence": "0.055"
+                },
+                {
+                    "Description": "highway",
+                    "Confidence": "0.045"
+                },
+                {
+                    "Description": "desert_road",
+                    "Confidence": "0.04"
+                },
+                {
+                    "Description": "runway",
+                    "Confidence": "0.037"
+                }
+            ],
+            "GeoClip Predictions": [
+                {
+                    "Country": "United Arab Emirates",
+                    "State": "mall",
+                    "Confidence": "tensor(0.0790)"
+                },
+                {
+                    "Country": "United Arab Emirates",
+                    "State": "Jumeirah",
+                    "Confidence": "tensor(0.0420)"
+                },
+                {
+                    "Country": "United Arab Emirates",
+                    "State": "Raqqa",
+                    "Confidence": "tensor(0.0210)"
+                }
+            ],
+            "Locations Detected from Text": [],
+            "Languages Detected Method 2": [
+                "Arabic",
+                "English"
+            ],
+            "Countries Possible from Languages Spotted": [
+                "Mali",
+                "T\u00fcrkiye",
+                "Bahrain",
+                "Qatar",
+                "Egypt",
+                "Eritrea",
+                "Yemen",
+                "Jordan",
+                "Comoros",
+                "Cameroon",
+                "Libya",
+                "United Arab Emirates",
+                "Mauritania",
+                "Tajikistan",
+                "Iraq",
+                "Iran, Islamic Republic of",
+                "Somalia",
+                "Nigeria",
+                "Palestine, State of",
+                "Tunisia",
+                "Western Sahara",
+                "Niger",
+                "United Kingdom",
+                "Lebanon",
+                "Canada",
+                "Saudi Arabia",
+                "Sudan",
+                "Syrian Arab Republic",
+                "Kuwait",
+                "Chad",
+                "Israel",
+                "Kenya",
+                "Oman",
+                "South Sudan",
+                "Cyprus",
+                "Morocco",
+                "Djibouti",
+                "Algeria"
+            ]
+        },
+        {
+            "Image": "Evaluation/Images/IMG-10.jpg",
+            "Environment Type": "Outdoor",
+            "Scene Category": [
+                {
+                    "Description": "promenade",
+                    "Confidence": "0.67"
+                },
+                {
+                    "Description": "boardwalk",
+                    "Confidence": "0.062"
+                },
+                {
+                    "Description": "gas_station",
+                    "Confidence": "0.048"
+                },
+                {
+                    "Description": "street",
+                    "Confidence": "0.027"
+                },
+                {
+                    "Description": "beach_house",
+                    "Confidence": "0.021"
+                }
+            ],
+            "GeoClip Predictions": [
+                {
+                    "Country": "United States",
+                    "State": "California",
+                    "Confidence": "tensor(0.0570)"
+                }
+            ],
+            "Locations Detected from Text": [],
+            "Languages Detected Method 2": [
+                "English"
+            ],
+            "Countries Possible from Languages Spotted": []
+        },
+        {
+            "Image": "Evaluation/Images/IMG-11.jpg",
+            "Environment Type": "Outdoor",
+            "Scene Category": [
+                {
+                    "Description": "hotel/outdoor",
+                    "Confidence": "0.112"
+                },
+                {
+                    "Description": "street",
+                    "Confidence": "0.093"
+                },
+                {
+                    "Description": "embassy",
+                    "Confidence": "0.075"
+                },
+                {
+                    "Description": "downtown",
+                    "Confidence": "0.069"
+                },
+                {
+                    "Description": "parking_garage/outdoor",
+                    "Confidence": "0.054"
+                }
+            ],
+            "GeoClip Predictions": [
+                {
+                    "Country": "United States",
+                    "State": "Texas",
+                    "Confidence": "tensor(0.0580)"
+                }
+            ],
+            "Locations Detected from Text": [],
+            "Languages Detected Method 2": [
+                "English"
+            ],
+            "Countries Possible from Languages Spotted": []
+        },
+        {
+            "Image": "Evaluation/Images/IMG-05.jpg",
+            "Environment Type": "Indoor",
+            "Scene Category": [
+                {
+                    "Description": "waiting_room",
+                    "Confidence": "0.232"
+                },
+                {
+                    "Description": "television_room",
+                    "Confidence": "0.203"
+                },
+                {
+                    "Description": "living_room",
+                    "Confidence": "0.095"
+                },
+                {
+                    "Description": "dorm_room",
+                    "Confidence": "0.057"
+                },
+                {
+                    "Description": "home_theater",
+                    "Confidence": "0.051"
+                }
+            ],
+            "GeoClip Predictions": [
+                {
+                    "Country": "India",
+                    "State": "Madhya Pradesh",
+                    "Confidence": "tensor(0.0290)"
+                },
+                {
+                    "Country": "India",
+                    "State": "Odisha",
+                    "Confidence": "tensor(0.0270)"
+                },
+                {
+                    "Country": "India",
+                    "State": "Haryana",
+                    "Confidence": "tensor(0.0230)"
+                }
+            ]
+        },
+        {
+            "Image": "Evaluation/Images/IMG-39.jpg",
+            "Environment Type": "Indoor",
+            "Scene Category": [
+                {
+                    "Description": "ticket_booth",
+                    "Confidence": "0.067"
+                },
+                {
+                    "Description": "subway_station/platform",
+                    "Confidence": "0.053"
+                },
+                {
+                    "Description": "booth/indoor",
+                    "Confidence": "0.053"
+                },
+                {
+                    "Description": "airport_terminal",
+                    "Confidence": "0.045"
+                },
+                {
+                    "Description": "locker_room",
+                    "Confidence": "0.035"
+                }
+            ],
+            "GeoClip Predictions": [
+                {
+                    "Country": "United Kingdom",
+                    "State": "England",
+                    "Confidence": "tensor(0.0080)"
+                }
+            ],
+            "Locations Detected from Text": [],
+            "Languages Detected Method 2": [
+                "English"
+            ],
+            "Countries Possible from Languages Spotted": []
+        },
+        {
+            "Image": "Evaluation/Images/IMG-49.jpg",
+            "Environment Type": "Outdoor",
+            "Scene Category": [
+                {
+                    "Description": "swimming_pool/outdoor",
+                    "Confidence": "0.35"
+                },
+                {
+                    "Description": "water_park",
+                    "Confidence": "0.343"
+                },
+                {
+                    "Description": "swimming_pool/indoor",
+                    "Confidence": "0.062"
+                },
+                {
+                    "Description": "beach_house",
+                    "Confidence": "0.044"
+                },
+                {
+                    "Description": "ice_skating_rink/outdoor",
+                    "Confidence": "0.02"
+                }
+            ],
+            "GeoClip Predictions": [
+                {
+                    "Country": "Mexico",
+                    "State": "Jalisco",
+                    "Confidence": "tensor(0.2460)"
+                }
+            ],
+            "Locations Detected from Text": [],
+            "Languages Detected Method 2": [
+                "English"
+            ],
+            "Countries Possible from Languages Spotted": []
+        },
+        {
+            "Image": "Evaluation/Images/IMG-48.jpg",
+            "Environment Type": "Outdoor",
+            "Scene Category": [
+                {
+                    "Description": "rice_paddy",
+                    "Confidence": "0.284"
+                },
+                {
+                    "Description": "hayfield",
+                    "Confidence": "0.221"
+                },
+                {
+                    "Description": "forest/broadleaf",
+                    "Confidence": "0.058"
+                },
+                {
+                    "Description": "field/wild",
+                    "Confidence": "0.055"
+                },
+                {
+                    "Description": "pasture",
+                    "Confidence": "0.051"
+                }
+            ],
+            "GeoClip Predictions": [
+                {
+                    "Country": "Kenya",
+                    "State": "Samburu",
+                    "Confidence": "tensor(0.1540)"
+                },
+                {
+                    "Country": "Kenya",
+                    "State": "Taita Taveta",
+                    "Confidence": "tensor(0.1360)"
+                }
+            ]
+        },
+        {
+            "Image": "Evaluation/Images/IMG-60.jpg",
+            "Environment Type": "Outdoor",
+            "Scene Category": [
+                {
+                    "Description": "raceway",
+                    "Confidence": "0.274"
+                },
+                {
+                    "Description": "junkyard",
+                    "Confidence": "0.163"
+                },
+                {
+                    "Description": "airfield",
+                    "Confidence": "0.045"
+                },
+                {
+                    "Description": "campsite",
+                    "Confidence": "0.04"
+                },
+                {
+                    "Description": "desert_road",
+                    "Confidence": "0.032"
+                }
+            ],
+            "GeoClip Predictions": [
+                {
+                    "Country": "Poland",
+                    "State": "Podlaskie Voivodeship",
+                    "Confidence": "tensor(0.0540)"
+                },
+                {
+                    "Country": "Deutschland",
+                    "State": "Brandenburg",
+                    "Confidence": "tensor(0.0380)"
+                },
+                {
+                    "Country": "Russia",
+                    "State": "Central Federal District",
+                    "Confidence": "tensor(0.0270)"
+                },
+                {
+                    "Country": "Deutschland",
+                    "State": "Lower Saxony",
+                    "Confidence": "tensor(0.0240)"
+                }
+            ],
+            "Locations Detected from Text": [],
+            "Languages Detected Method 2": [
+                "English"
+            ],
+            "Countries Possible from Languages Spotted": []
+        },
+        {
+            "Image": "Evaluation/Images/IMG-58.jpg",
+            "Environment Type": "Indoor",
+            "Scene Category": [
+                {
+                    "Description": "television_studio",
+                    "Confidence": "0.142"
+                },
+                {
+                    "Description": "orchestra_pit",
+                    "Confidence": "0.069"
+                },
+                {
+                    "Description": "legislative_chamber",
+                    "Confidence": "0.046"
+                },
+                {
+                    "Description": "conference_room",
+                    "Confidence": "0.045"
+                },
+                {
+                    "Description": "ballroom",
+                    "Confidence": "0.04"
+                }
+            ],
+            "GeoClip Predictions": [
+                {
+                    "Country": "Taiwan",
+                    "State": "Taichung City",
+                    "Confidence": "tensor(0.0040)"
+                },
+                {
+                    "Country": "Taiwan",
+                    "State": "Taipei City",
+                    "Confidence": "tensor(0.0040)"
+                },
+                {
+                    "Country": "United States",
+                    "State": "Maryland",
+                    "Confidence": "tensor(0.0020)"
+                }
+            ]
+        },
+        {
+            "Image": "Evaluation/Images/IMG-59.jpg",
+            "Environment Type": "Indoor",
+            "Scene Category": [
+                {
+                    "Description": "beer_hall",
+                    "Confidence": "0.542"
+                },
+                {
+                    "Description": "pub/indoor",
+                    "Confidence": "0.184"
+                },
+                {
+                    "Description": "fastfood_restaurant",
+                    "Confidence": "0.053"
+                },
+                {
+                    "Description": "bar",
+                    "Confidence": "0.038"
+                },
+                {
+                    "Description": "food_court",
+                    "Confidence": "0.026"
+                }
+            ],
+            "GeoClip Predictions": [
+                {
+                    "Country": "United States",
+                    "State": "Massachusetts",
+                    "Confidence": "tensor(0.0310)"
+                }
+            ],
+            "Locations Detected from Text": [],
+            "Languages Detected Method 2": [
+                "English"
+            ],
+            "Countries Possible from Languages Spotted": []
+        },
+        {
+            "Image": "Evaluation/Images/IMG-12.jpeg",
+            "Environment Type": "Outdoor",
+            "Scene Category": [
+                {
+                    "Description": "street",
+                    "Confidence": "0.096"
+                },
+                {
+                    "Description": "amusement_arcade",
+                    "Confidence": "0.066"
+                },
+                {
+                    "Description": "crosswalk",
+                    "Confidence": "0.059"
+                },
+                {
+                    "Description": "fastfood_restaurant",
+                    "Confidence": "0.048"
+                },
+                {
+                    "Description": "hotel/outdoor",
+                    "Confidence": "0.046"
+                }
+            ],
+            "GeoClip Predictions": [
+                {
+                    "Country": "Malaysia",
+                    "State": "Kuala Lumpur",
+                    "Confidence": "tensor(0.0690)"
+                }
+            ],
+            "Locations Detected from Text": [],
+            "Languages Detected Method 2": [
+                "English",
+                "Japanese",
+                "Chinese"
+            ],
+            "Countries Possible from Languages Spotted": [
+                "Mongolia",
+                "Singapore",
+                "China",
+                "Malaysia",
+                "Macao",
+                "Canada",
+                "Hong Kong",
+                "Japan",
+                "Brazil"
+            ]
+>>>>>>> e9aaf021ae5ef6adb9b7d571156632985fca8980
         }
     ]
 ]
