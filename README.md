@@ -113,6 +113,7 @@ The model achieves a 63% accuracy for predicting the top-ranked country location
 
 
 **Conclusion**
+
 The evaluation demonstrates that the GeoLocator System performs strongly in tasks like Indoor/Outdoor classification, Text Spotting, and Language Detection. However, there are areas for improvement, particularly in Scene Detection and Location Extraction from Language.
 
 The key metrics are summarized as follows:
