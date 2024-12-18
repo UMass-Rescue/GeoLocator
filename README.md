@@ -118,9 +118,9 @@ The evaluation demonstrates that the GeoLocator System performs strongly in task
 
 The key metrics are summarized as follows:
 
-- Indoor/Outdoor Accuracy: 90%
-- GeoCLIP TOP-5 Accuracy: 72%
-- Text Spotter Accuracy: 92%
+- Indoor/Outdoor Accuracy: **90%**
+- GeoCLIP TOP-5 Accuracy: **72%**
+- Text Spotter Accuracy: **92%**
 
 
 ## Individual Phases Explanation
