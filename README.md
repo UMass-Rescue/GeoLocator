@@ -64,7 +64,7 @@ The total execution time for the evaluation was approximately **1498.16 seconds 
 
 - **Average time per image**: **1.25 minutes**.
 
-![Model Evaluation Results](assets/model_evaluation_time.png)
+![Model Evaluation Results](assets/model_evaluation_time.jpeg)
 
 This includes:
 - Loading models and datasets.
