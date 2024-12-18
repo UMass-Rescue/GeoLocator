@@ -5,6 +5,7 @@ The GeoLocator application is designed to assist in location identification from
 - Indoor/Outdoor Scene Recognition: The application first classifies whether an image depicts an indoor or outdoor scene, providing context for further geolocation processing.
 - GeoCLIP (Location Prediction): Utilizing the CLIP model, the application generates image embeddings and correlates them with geographical latitude and longitude data to predict the likely location. This enables rough geolocation based on visual features.
 - Text Detection/ Spotter: If textual information is present in the image, the tool detects the script and identifies the language, adding additional context for location inference.
+- Location Information Extraction From Text Spotted: This utility identifies script in the text and lists the possibilities of countries based on the predefined knowledge ( [CLDR](https://en.wikipedia.org/wiki/Common_Locale_Data_Repository) ) of scripts associated with countries. 
 - OCR (Optical Character Recognition): The application applies OCR to extract visible text from images, which may include signs, street names, or other clues useful for location detection.
 - Named Entity Recognition (NER): Finally, the extracted text undergoes Named Entity Recognition to identify geographical entities such as cities, countries, or landmarks, refining the location prediction.
 
