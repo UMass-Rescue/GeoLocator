@@ -149,7 +149,7 @@ To Test Craft implementation, run the following commands
     !python test.py --trained_model="weights/craft_mlt_25k.pth" --test_folder={folder of test images}
 
 
-#### MMOCR Implementation
+#### MMOCR Implementation (Ablation Studies)
 To test mmocr implementation, execute following commands
 
       %cd TextSpotter/mmocr
@@ -157,8 +157,18 @@ To test mmocr implementation, execute following commands
       !python tools/infer.py {testfolder/image} --det {textdetectormodel: For eg. DBNet} --print-result
 
 
+### Phase 4: Extraction of Location Information from Text
+We used OPENAI's pretrained CLIP model and get similarity scores with top 100 widely used scripts.
+From the scripts identified, we get possible list of countries were scripts is spoken from Common Locale Data Repository (CLDR)  
 
-### Phase 4 and 5: Text Extraction with OCR and NER
+
+
+
+
+
+
+
+### Text Extraction with OCR and NER (Ablation Studies)
 This project performs Optical Character Recognition (OCR) and Named Entity Recognition (NER) on images using EasyOCR and spaCy. We utilize the TextOCR dataset to extract text from images, detect the language, and identify geopolitical entities (locations) within the extracted text.
 
 #### Key Dependencies
