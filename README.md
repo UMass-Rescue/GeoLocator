@@ -52,7 +52,7 @@ The output is a JSON file containing:
 
 ### **Model Evaluation**
 
-To evaluate the model, we have created a dataset of 20 images located in the `Evaluation/Images` folder, with corresponding labels provided in the file `Labels.csv` inside the `Evaluation` directory.
+To evaluate the model, we have created a dataset of 60 images located in the `Evaluation/Images` folder, with corresponding labels provided in the file `Labels.csv` inside the `Evaluation` directory.
 
 ```bash
 python evaluate.py
@@ -60,9 +60,9 @@ python evaluate.py
 
 #### **Evaluation Output**
 
-The total execution time for the evaluation was approximately **1920.67 seconds** (32 minutes) for processing 20 images.
+The total execution time for the evaluation was approximately **1498.16 seconds (~25 minutes)s** for processing 60 images.
 
-- **Average time per image**: **1.6 minutes**.
+- **Average time per image**: **1.25 minutes**.
 
 ![Model Evaluation Results](assets/model_evaluation_time.png)
 
@@ -70,6 +70,56 @@ This includes:
 - Loading models and datasets.
 - Performing predictions for all images.
 - Calculating accuracy metrics.
+- The results are written to `Evaluation/op.csv`
+
+#### Detailed Results Explanation
+**1. Indoor/Outdoor Classification**
+- Accuracy: 0.90
+
+The model performs exceptionally well at classifying whether an image was taken indoors or outdoors, achieving 90% accuracy.
+
+**2. Scene Detection**
+- Precision: 0.37
+- Recall: 0.64
+- F1-Score: 0.45
+- Accuracy: 0.64
+  
+The precision for scene detection is relatively low (0.37), suggesting the model has difficulty correctly identifying specific scenes. However, the recall is higher at 0.64, meaning it is able to find most correct scenes but with some incorrect predictions.
+
+**3. Text Spotter Accuracy**
+- Accuracy: 0.92
+
+The Text Spotter module successfully detects text in 92% of the images. This highlights the model's robustness in text recognition tasks.
+
+**4. Language Detection**
+- Precision: 0.63
+- Recall: 0.77
+- F1-Score: 0.66
+- Accuracy: 0.77
+  
+The language detection component performs well with an accuracy of 77%. The higher recall indicates it correctly identifies most relevant languages, though precision could be improved.
+
+**5. Location from Language Detection**
+- Accuracy: 0.42
+  
+The accuracy for extracting geographic clues from detected languages is lower (42%). This suggests room for improvement in associating languages to their correct geographic regions.
+
+**6. GeoCLIP Predictions**
+
+- GeoCLIP Accuracy: 0.63
+- GeoCLIP TOP-5 Accuracy: 0.72
+
+The model achieves a 63% accuracy for predicting the top-ranked country location. However, when considering the Top-5 predictions, accuracy improves to 72%. This indicates the model often includes the correct country within its top predictions, even if it is not ranked first.
+
+
+**Conclusion**
+The evaluation demonstrates that the GeoLocator System performs strongly in tasks like Indoor/Outdoor classification, Text Spotting, and Language Detection. However, there are areas for improvement, particularly in Scene Detection and Location Extraction from Language.
+
+The key metrics are summarized as follows:
+
+- Indoor/Outdoor Accuracy: 90%
+- GeoCLIP TOP-5 Accuracy: 72%
+- Text Spotter Accuracy: 92%
 
 
 ## Individual Phases Explanation
